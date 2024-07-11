@@ -52,7 +52,6 @@
             <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a>
             <h2>AVATAR CUSTOMIZATION</h2>
             <a href="{% url 'my_closet' %}"><i class="fa-solid fa-bag-shopping"></i></a>
-            
         </div>
 
         <div class="iframe-container" id="avatarCreatorContainer">
@@ -60,11 +59,7 @@
                 frameborder="0"></iframe>
         </div>
 
-        <form method="POST" action="{% url 'create_avatar' %}">
-            {% csrf_token %}
-            <input type="hidden" id="avatar_url" name="avatar_url">
-            <button type="submit">Save Avatar</button>
-        </form>
+        <button onclick="submitDesign()" class="submit-design-btn">Submit Design</button>
     </div>
 
     <script>
@@ -107,7 +102,13 @@
                 return null;
             }
         }
+
+        function submitDesign() {
+            // Perform any necessary validation or processing before redirecting
+            window.location.href = '{% url 'submit_design' %}';
+        }
     </script>
 </body>
 
 </html>
+
