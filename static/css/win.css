@@ -1,0 +1,81 @@
+.head-space a {
+    text-decoration: none;
+    /* Remove underline from the link */
+    color: inherit;
+    /* Ensure the icon uses its own color */
+}
+
+.design-box {
+    margin-bottom: 20px;
+}
+
+.design-item {
+    display: flex;
+    align-items: center;
+}
+
+.design-image {
+    flex: 0 0 150px;
+    /* Adjust width of the image container */
+    margin-right: 20px;
+}
+
+.design-image img {
+    width: 100%;
+    /* height: auto; */
+    height: 165px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.design-content {
+    flex: 1;
+}
+
+.design-content h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.design-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.details-link {
+    display: inline-block;
+    background-color: #ff4081;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.details-link:hover {
+    background-color: #dc1b5d;
+    /* Darker shade of the primary color */
+}
+
+.win-leaderboard {
+    margin-top: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 200px;
+
+}
+
+.screen-content {
+    overflow: hidden;
+    max-height: 600px;
+}
+
+.mobile-screen {
+    overflow: hidden;
+    max-height: 600px;
+}

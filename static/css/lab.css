@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 226, 231);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-logo img {
+    height: 35px;
+}
+
+.navbar-links {
+    font-size: 12px;
+}
+
+.navbar-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.navbar-links a:hover {
+    color: #ff4081;
+    /* Change this color to match your brand's color */
+}
+
+.new-label {
+    color: #ff4081;
+    /* Change this color to match your brand's color */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.navbar-search input {
+    padding: 5px 10px;
+    border-width: 1px 1px 1px 0px;
+    border-style: solid;
+    border-color: #ccc;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 376px;
+    height: 37px;
+}
+
+.navbar-search button {
+    border-width: 1px 0 1px 1px;
+    /* top, right, bottom, left */
+    border-style: solid;
+    border-color: #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 37px;
+    height: 49px;
+}
+
+.navbar-icons {
+    display: flex;
+    font-size: 12px;
+}
+
+.navbar-icons a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-icons a i {
+    margin-bottom: 5px;
+}
+
+.navbar-icons a:hover {
+    color: #ff4081;
+    /* Change this color to match your brand's color */
+}
+
+
+.mobile-screen {
+    background-color: #fafafa;
+    /* padding: 20px; */
+    border-radius: 10px;
+    margin: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 45px;
+    height: 602px;
+}
+
+.head-space {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.head-space h2 {
+    margin: 0;
+    font-size: 18px;
+    margin-left: 10px;
+    color: #746a6a;
+}
+
+.head-space i {
+    margin-right: 10px;
+}
+
+.screen-content {
+    padding: 20px;
+}
+
+.theme-box {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 12px;
+}
+/* Add this CSS at the end of your existing styles */
+
+.theme-overlay {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    left: 10px; /* Adjust left position as needed */
+    padding: 10px;
+    z-index: 1; /* Ensure it's above the image */
+    font-size: 24px;
+    font-style: italic;
+    color: #fff; 
+}
+
+.theme-text {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1px;
+    color: #fff; 
+}
+
+.theme-text #text1 {
+    font-style: italic;
+    color: #e82f6e;
+}
+
+.theme-text #theme {
+    font-style: italic;
+    font-size: 32px;
+    font-weight: bolder;
+    color: #dc1b5d;
+}
+
+.theme-box img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Add this CSS at the end of your existing styles */
+
+.leaderboard {
+    margin-top: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 123px;
+}
+
+.leaderboard h3 {
+    font-size: 18px;
+    color: #555;
+    margin-top: 0px;
+    font-style: italic
+}
+
+.leaderboard ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.leaderboard ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: #746a6a;
+}
+
+.leaderboard ul li:last-child {
+    border-bottom: none;
+}
+
+.leaderboard ul li span {
+    color: #999;
+    font-size: 14px;
+}
+
+.leaderboard ul li strong {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Add this CSS at the end of your existing styles */
+
+.image-container {
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.participate-btn,
+.see-designs-btn {
+    background-color: #ff4081;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 161px;
+    text-decoration: none;
+}
+
+.participate-btn:hover,
+.see-designs-btn:hover {
+    background-color: #dc1b5d;
+    /* Darker shade of the primary color */
+}
+
+.vote-btn {
+    position: absolute;
+    top: 237px;
+    left: 0;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    /* border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px; */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.theme-box img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
