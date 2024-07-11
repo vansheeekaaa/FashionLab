@@ -56,3 +56,12 @@ def create_avatar(request):
             return redirect('index')
         return HttpResponseBadRequest("Avatar URL not found")
     return render(request, 'create_avatar.html')
+
+
+
+
+
+
+
+def my_closet(request):
+    return render(request, 'my_closet.html')
