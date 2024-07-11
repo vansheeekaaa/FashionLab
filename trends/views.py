@@ -4,6 +4,17 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from .models import Design, Vote, Avatar
 from .forms import DesignForm
 
+def submit_design(request):
+    if request.method == 'POST':
+        form = DesignForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_page')  # Redirect to a success page or another URL
+    else:
+        form = DesignForm()
+    
+    return render(request, 'submit_design.html', {'form': form})
+
 # View to display all designs
 def index(request):
     designs = Design.objects.all()
@@ -11,16 +22,7 @@ def index(request):
 
 # View to submit a new design
 def submit_design(request):
-    if request.method == 'POST':
-        form = DesignForm(request.POST, request.FILES)
-        if form.is_valid():
-            design = form.save(commit=False)
-            design.creator = request.user
-            design.save()
-            return redirect('index')
-    else:
-        form = DesignForm()
-    return render(request, 'submit_design.html', {'form': form})
+    return render(request, 'submit_design.html')
 
 # View to vote on a design
 #@login_required

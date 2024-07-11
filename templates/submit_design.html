@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/submit_design.css' %}"> <!-- Link to your custom CSS file -->
+    <title>Submit Design</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{% static 'Images/New-Myntra-Logo.png' %}" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="#">MEN</a>
+            <a href="#">WOMEN</a>
+            <a href="#">KIDS</a>
+            <a href="#">HOME & LIVING</a>
+            <a href="#">BEAUTY</a>
+            <a href="#">STUDIO</a>
+            <a href="{% url 'lab' %}">LAB <span class="new-label">NEW</span></a>
+        </div>
+        <div class="navbar-search">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" placeholder="Search for products, brands and more">
+        </div>
+        <div class="navbar-icons">
+            <a href="#" class="icon-item">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </a>
+            <a href="#" class="icon-item">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+            <a href="#" class="icon-item">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Bag</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="mobile-screen">
+        <div class="screen-content">
+            <div class="head-space">
+                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a>
+                <h2>SUBMIT DESIGN</h2>
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="submit-form">
+                <form action="{% url 'submit_design' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="login_id">Login ID:</label>
+                        <input type="text" id="login_id" name="login_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="design_link">Design Link:</label>
+                        <input type="text" id="design_link" name="design_link" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/submit_design.js' %}"></script>
+</body>
+
+</html>
