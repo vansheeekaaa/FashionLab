@@ -9,4 +9,5 @@ urlpatterns = [
     path('lab/', views.lab, name='lab'),
     path('win/', views.win, name='win'),
     path('create_avatar/', views.create_avatar, name='create_avatar'),  # This line is important
+    path('my-closet/', views.my_closet, name='my_closet'),
 ]
