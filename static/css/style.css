@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-logo img {
+    height: 35px;
+}
+
+.navbar-links {
+    font-size: 12px;
+}
+
+.navbar-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.navbar-links a:hover {
+    color: #ff4081;
+    /* Change this color to match your brand's color */
+}
+
+.new-label {
+    color: #ff4081;
+    /* Change this color to match your brand's color */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.navbar-search input {
+    padding: 5px 10px;
+    border-width: 1px 1px 1px 0px;
+    border-style: solid;
+    border-color: #ccc;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 376px;
+    height: 37px;
+}
+
+.navbar-search button {
+    border-width: 1px 0 1px 1px;
+    /* top, right, bottom, left */
+    border-style: solid;
+    border-color: #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 37px;
+    height: 49px;
+}
+
+.navbar-icons {
+    display: flex;
+    font-size: 12px;
+}
+
+.navbar-icons a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-icons a i {
+    margin-bottom: 5px;
+}
+
+.navbar-icons a:hover {
+    color: #ff4081;
+}
+
+/* Promotional Header Styles */
+.promo-header {
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    text-align: center;
+    padding: 19px 0;
+    color: #fff;
+}
+
+.promo-content {
+    display: inline-block;
+    padding: 0;
+}
+
+.promo-header p {
+    font-size: 1em;
+    margin: 0;
+    font-weight: bold;
+}
+
+.countdown {
+    font-size: 1em;
+    font-weight: bold;
+}
+/* 
+.promo-banner {
+    background: linear-gradient(to right, #ffa726, #fb8c00);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner-tag {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.tag-content {
+    display: flex;
+    align-items: center;
+}
+
+.tag-content span {
+    color: #fff;
+    font-weight: bold;
+}
+
+.banner-text {
+    margin-left: 20px;
+    color: #fff;
+}
+
+.banner-text h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.promo-info {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+} */
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the gap between images as needed */
+}
+
+.itemImg {
+    max-width: 278px; /* Ensure all images are of uniform width */
+    margin-bottom: 10px; /* Add spacing between images */
+}
+.section1 {
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+    white-space: nowrap; /* Prevent wrapping of images */
+}
+
+.homeImg {
+    margin-top: 5px;
+    max-width: 100%; /* Ensure the image does not exceed its container's width */
+    height: auto; /* Maintain aspect ratio */
+}

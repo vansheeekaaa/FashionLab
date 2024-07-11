@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Customization - Create</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-logo">
+        <img src="{% static 'Images/New-Myntra-Logo.png' %}" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a href="#">MEN</a>
+        <a href="#">WOMEN</a>
+        <a href="#">KIDS</a>
+        <a href="#">HOME & LIVING</a>
+        <a href="#">BEAUTY</a>
+        <a href="#">STUDIO</a>
+        <a href="#">LAB <span class="new-label">NEW</span></a>
+    </div>
+    <div class="navbar-search">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" placeholder="Search for products, brands and more">
+    </div>
+    <div class="navbar-icons">
+        <a href="#" class="icon-item">
+            <i class="fa-regular fa-user"></i>
+            <span>Profile</span>
+        </a>
+        <a href="#" class="icon-item">
+            <i class="fa-regular fa-heart"></i>
+            <span>Wishlist</span>
+        </a>
+        <a href="#" class="icon-item">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Bag</span>
+        </a>
+    </div>
+</nav>
+
+<div class="mobile-screen">
+    <div class="screen-content">
+        <div class="head-space">
+            <a href="{% url 'index' %}"><i class="fas fa-chevron-left"></i></a>
+            <h2>Avatar Customization</h2>
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+
+        <div class="iframe-container" id="avatarCreatorContainer">
+            <iframe id="frame" class="frame" allow="camera *; microphone *; clipboard-write" style="width:100%; height:100vh;" frameborder="0"></iframe>
+        </div>
+
+        <form method="POST" action="{% url 'create_avatar' %}">
+            {% csrf_token %}
+            <input type="hidden" id="avatar_url" name="avatar_url">
+            <button type="submit">Save Avatar</button>
+        </form>
+
+        <script>
+            const subdomain = 'fashionlab';
+            const frame = document.getElementById('frame');
+            const avatarUrlField = document.getElementById('avatar_url');
+
+            frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
+
+            window.addEventListener('message', subscribe);
+
+            function subscribe(event) {
+                const json = parse(event);
+
+                if (json?.source !== 'readyplayerme') {
+                    return;
+                }
+
+                if (json.eventName === 'v1.frame.ready') {
+                    frame.contentWindow.postMessage(
+                        JSON.stringify({
+                            target: 'readyplayerme',
+                            type: 'subscribe',
+                            eventName: 'v1.**'
+                        }),
+                        '*'
+                    );
+                }
+
+                if (json.eventName === 'v1.avatar.exported') {
+                    console.log(`Avatar URL: ${json.data.url}`);
+                    avatarUrlField.value = json.data.url; // Update the value of the hidden input field
+                }
+            }
+
+            function parse(event) {
+                try {
+                    return JSON.parse(event.data);
+                } catch (error) {
+                    return null;
+                }
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

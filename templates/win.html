@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+    <link rel="stylesheet" href="{% static 'css/win.css' %}">
+    <title>Winning Designs</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="{% static 'Images/New-Myntra-Logo.png' %}" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="#">MEN</a>
+            <a href="#">WOMEN</a>
+            <a href="#">KIDS</a>
+            <a href="#">HOME & LIVING</a>
+            <a href="#">BEAUTY</a>
+            <a href="#">STUDIO</a>
+            <a href="lab.html">LAB <span class="new-label">NEW</span></a>
+        </div>
+        <div class="navbar-search">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" placeholder="Search for products, brands and more">
+        </div>
+        <div class="navbar-icons">
+            <a href="#" class="icon-item">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </a>
+            <a href="#" class="icon-item">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+            <a href="#" class="icon-item">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Bag</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="mobile-screen">
+        <div class="screen-content">
+            <div class="head-space">
+                <a href="lab.html">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <h2>PREVIOUS WIN-DESIGNS</h2>
+                <i class="fa-solid fa-bag-shopping"></i> <!-- Icon after heading -->
+            </div>
+            
+            <div class="win-leaderboard">
+                <div class="design-box">
+                    <div class="design-item">
+                        <div class="design-image">
+                            <img src="{% static "Images\fashion1.jpg" %}" alt="Design Image">
+                        </div>
+                        <div class="design-content">
+                            <h3>Theme : 60's in London</h3>
+                            <p>Picture yourself strolling down those colorful 60's London streets, surrounded by bold
+                                patterns, psychedelic art, and free spirits.</p>
+                            <a href="details.html" class="details-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="win-leaderboard">
+                <div class="design-box">
+                    <div class="design-item">
+                        <div class="design-image">
+                            <img src="{% static "Images\fashion2.jpg" %}" alt="Design Image">
+                        </div>
+                        <div class="design-content">
+                            <h3>Theme : BACK TO SCHOOL</h3>
+                            <p>Your outfit? Chic yet comfortable. A plaid skirt paired with knee-high socks, a vintage
+                                band tee, and chunky sneakers.</p>
+                            <a href="details.html" class="details-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="win-leaderboard">
+                <div class="design-box">
+                    <div class="design-item">
+                        <div class="design-image">
+                            <img src="{% static "Images\fashion3.jpg" %}" alt="Design Image">
+                        </div>
+                        <div class="design-content">
+                            <h3>Theme : Y2K Revival</h3>
+                            <p>The early 2000s are making a comeback! Expect low-rise jeans, crop tops, and chunky sneakers. It's all about embracing that Y2K vibe.</p>
+                            <a href="details.html" class="details-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more design boxes as needed -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
