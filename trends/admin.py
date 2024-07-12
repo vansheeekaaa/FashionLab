@@ -1,6 +1,4 @@
 from django.contrib import admin
-from .models import Design, Vote, Avatar
+from .models import DesignSubmission
 
-admin.site.register(Design)
-admin.site.register(Vote)
-admin.site.register(Avatar)
+admin.site.register(DesignSubmission)
