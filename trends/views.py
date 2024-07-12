@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from .forms import DesignForm
-
+from django.views.decorators.http import require_POST
+from .models import DesignSubmission
 def submit_design(request):
     if request.method == 'POST':
         form = DesignForm(request.POST)
@@ -34,3 +35,16 @@ def my_closet(request):
 
 def success(request):
     return render(request, 'success.html')
+
+def vote_view(request):
+    designs = DesignSubmission.objects.all()
+    return render(request, 'vote.html', {'designs': designs})
+
+def upvote_design(request, design_id):
+    if request.method == 'POST':
+        design = get_object_or_404(DesignSubmission, pk=design_id)
+        design.votes += 1
+        design.save()
+        return JsonResponse({'votes': design.votes})
+    # Handle GET request if needed
+    return JsonResponse({'error': 'POST request required'})
