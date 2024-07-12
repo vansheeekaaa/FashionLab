@@ -6,6 +6,7 @@ class DesignSubmission(models.Model):
     password = models.CharField(max_length=100)
     design_link = models.URLField()
     submitted_at = models.DateTimeField(auto_now_add=True)
+    votes = models.IntegerField(default=0) 
 
     def __str__(self):
         return f"Design Submission {self.id}: {self.name}"

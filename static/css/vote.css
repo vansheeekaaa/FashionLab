@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-logo img {
+    height: 40px;
+}
+
+.navbar-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-search input {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.navbar-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-icons a .icon-item {
+    text-align: center;
+}
+
+.mobile-screen {
+    max-height: 100vh;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+}
+
+.screen-content {
+    padding: 10px;
+}
+
+.head-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.closet-leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.design-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.design-box model-viewer {
+    width: 100%;
+    height: 500px; /* Adjust the height as needed */
+    border-radius: 10px;
+}
+
+.design-actions {
+    display: flex;
+    justify-content: flex-end; /* Align icons to the right */
+    margin-top: 10px; /* Adjust margin top */
+}
+
+.design-actions a {
+    color: #333; /* Adjust icon color */
+    text-decoration: none; /* Remove underline */
+    margin-left: 10px; /* Adjust margin between icons */
+}
+
+.design-text {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center; /* Center align the design name */
+    margin-top: 10px; /* Add margin top for spacing */
+}
