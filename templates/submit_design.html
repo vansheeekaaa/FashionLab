@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/submit_design.css' %}"> <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{% static 'css/submit_design.css' %}">
     <title>Submit Design</title>
 </head>
 
@@ -59,8 +59,12 @@
                 <form action="{% url 'submit_design' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="login_id">Login ID:</label>
-                        <input type="text" id="login_id" name="login_id" required>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
@@ -68,7 +72,7 @@
                     </div>
                     <div class="form-group">
                         <label for="design_link">Design Link:</label>
-                        <input type="text" id="design_link" name="design_link" required>
+                        <input type="url" id="design_link" name="design_link" required>
                     </div>
                     <button type="submit" class="submit-btn">Submit</button>
                 </form>

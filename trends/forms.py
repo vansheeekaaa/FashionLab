@@ -1,8 +1,12 @@
-# myapp/forms.py
+# trends/forms.py
+
 from django import forms
-from .models import Design
+from .models import DesignSubmission
 
 class DesignForm(forms.ModelForm):
     class Meta:
-        model = Design
-        fields = ['title', 'description', 'image']
+        model = DesignSubmission
+        fields = ['name', 'email', 'password', 'design_link']
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
