@@ -57,22 +57,15 @@
                 <a href="{% url 'my_closet' %}"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
             <div class="theme-box">
-                <div class="theme-overlay">
-                    <div class="theme-text">
-                        <p id="text1">This Time It's</p>
-                        <p id="theme">VINTAGE</p>
-                    </div>
-                </div>
                 <div class="image-container">
-                    <a href="{% url 'vote_view' %}" class="vote-btn">VOTE</a>
                     <img src="{% static 'Images/fashion_theme.jpg' %}" alt="Theme Image">
                     <div class="button-container">
                         <a href="{% url 'create' %}" class="participate-btn">Participate</a>
-                        <a href="{% url 'win' %}" class="see-designs-btn">See Winning Designs</a>
+                        <a href="{% url 'win' %}" class="see-designs-btn">Previous Winners</a>
+                        <a href="{% url 'vote_view' %}" class="vote-btn">Vote</a>
                     </div>
                 </div>
-            </div>
-
+            </div>                  
             <div class="leaderboard">
                 <h3>leaderboard:</h3>
                 <ul>
