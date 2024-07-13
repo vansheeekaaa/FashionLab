@@ -1,8 +1,6 @@
 .head-space a {
     text-decoration: none;
-    /* Remove underline from the link */
     color: inherit;
-    /* Ensure the icon uses its own color */
 }
 
 .design-box {
@@ -16,16 +14,15 @@
 
 .design-image {
     flex: 0 0 150px;
-    /* Adjust width of the image container */
     margin-right: 20px;
 }
 
 .design-image img {
-    width: 100%;
-    /* height: auto; */
+    width: 81%;
     height: 165px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 18px;
 }
 
 .design-content {
@@ -36,13 +33,22 @@
     margin-top: 0;
     font-size: 16px;
     color: #333;
+    text-transform: uppercase;
 }
 
 .design-content p {
     font-size: 14px;
     color: #666;
     margin-bottom: 10px;
+    /* Limit the height and overflow settings */
+    max-height: 60px; /* Adjust this value to control the maximum height */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
 }
+
 
 .details-link {
     display: inline-block;
@@ -57,7 +63,6 @@
 
 .details-link:hover {
     background-color: #dc1b5d;
-    /* Darker shade of the primary color */
 }
 
 .win-leaderboard {
@@ -66,8 +71,7 @@
     padding: 12px;
     background-color: #fff;
     border-radius: 10px;
-    height: 200px;
-
+    height: 174px;
 }
 
 .screen-content {
