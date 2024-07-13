@@ -10,5 +10,7 @@ urlpatterns = [
     path('win/', views.win, name='win'),
     path('my-closet/', views.my_closet, name='my_closet'),
     path('success/', views.success, name='success'),
-    path('design/<int:design_id>/upvote/', views.upvote_design, name='upvote_design'),    
+    path('design/<int:design_id>/upvote/', views.upvote_design, name='upvote_design'), 
+
+    path('vote/', views.vote_view, name='vote_view'),
 ]

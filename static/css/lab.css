@@ -282,6 +282,7 @@ body {
     font-size: 13px;
     text-transform: uppercase;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .theme-box img {

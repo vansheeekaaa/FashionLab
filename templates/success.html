@@ -9,7 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/my_closet.css' %}"> <!-- Assuming you have a common CSS file for styles -->
+    <link rel="stylesheet" href="{% static 'css/success.css' %}">
     <title>Success Page</title>
 </head>
 <body>
@@ -49,19 +49,17 @@
     <div class="mobile-screen">
         <div class="screen-content">
             <div class="head-space">
-                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a> <!-- Icon before heading -->
+                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a>
                 <h2>Success!</h2>
-                <!-- <i class="fa-regular fa-user"></i> --> <!-- Assuming this icon is not needed for success message -->
             </div>
             <div class="success-message">
-                <h2>Thank you for your valuable submission!</h2>
+                <h2>Thank you for submitting your design!</h2>
                 <div class="button-group">
-                    <a href="#" class="btn">Vote Now</a>
+                    <a href="{% url 'vote_view' %}" class="btn">Vote Now</a>
                     <a href="{% url 'my_closet' %}" class="btn">My Closet</a>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>

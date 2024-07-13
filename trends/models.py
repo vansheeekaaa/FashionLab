@@ -10,4 +10,3 @@ class DesignSubmission(models.Model):
 
     def __str__(self):
         return f"Design Submission {self.id}: {self.name}"
-
