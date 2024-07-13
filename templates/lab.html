@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="image-container">
-                    <button class="vote-btn">VOTE</button>
+                    <a href="{% url 'vote_view' %}" class="vote-btn">VOTE</a>
                     <img src="{% static 'Images/fashion image.jpg' %}" alt="Theme Image">
                     <div class="button-container">
                         <a href="{% url 'create' %}" class="participate-btn">Participate</a>

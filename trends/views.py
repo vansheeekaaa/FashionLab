@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from .forms import DesignForm
 from django.views.decorators.http import require_POST
 from .models import DesignSubmission
+
 def submit_design(request):
     if request.method == 'POST':
         form = DesignForm(request.POST)
@@ -25,13 +26,14 @@ def lab(request):
 # View for the win page
 def win(request):
     return render(request, 'win.html')
-
+ 
 # View to create and customize an avatar
 def create(request):
     return render(request, 'create.html')
 
 def my_closet(request):
     return render(request, 'my_closet.html')
+    analyze_user_preferences(user)
 
 def success(request):
     return render(request, 'success.html')
@@ -48,3 +50,16 @@ def upvote_design(request, design_id):
         return JsonResponse({'votes': design.votes})
     # Handle GET request if needed
     return JsonResponse({'error': 'POST request required'})
+
+def vote(request, design_id):
+    design = get_object_or_404(DesignSubmission, pk=design_id)
+    if request.method == 'POST':
+        Vote.objects.create(voter=request.user, design=design)
+        design.votes += 1
+        design.save()
+        return redirect('vote_success', design_id=design.id)
+    return render(request, 'vote.html', {'design': design})
+
+def vote_success(request, design_id):
+    design = get_object_or_404(DesignSubmission, pk=design_id)
+    return render(request, 'vote.html', {'design': design, 'success': True})
