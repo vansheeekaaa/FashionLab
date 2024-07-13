@@ -25,7 +25,7 @@
             <a href="#">HOME & LIVING</a>
             <a href="#">BEAUTY</a>
             <a href="#">STUDIO</a>
-            <a href="lab.html">LAB <span class="new-label">NEW</span></a>
+            <a href="{% static 'win/lab.html' %}">LAB <span class="new-label">NEW</span></a>
         </div>
         <div class="navbar-search">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -56,17 +56,17 @@
                 <h2>PREVIOUS WIN-DESIGNS</h2>
                 <a href="{% url 'my_closet' %}"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
-            
+
             <div class="win-leaderboard">
                 <div class="design-box">
                     <div class="design-item">
                         <div class="design-image">
-                            <img src="{% static "Images\fashion1.jpg" %}" alt="Design Image">
+                            <img src="{% static 'Images/fashion1.png' %}" alt="Design Image">
                         </div>
                         <div class="design-content">
-                            <h3>Theme : 60's in London</h3>
-                            <p>Picture yourself strolling down those colorful 60's London streets, surrounded by bold
-                                patterns, psychedelic art, and free spirits.</p>
+                            <h3>Theme : Modern Streetwear</h3>
+                            <p>Combination of the light blue hoodie with floral and skull graphics, and black baggy
+                                pants - a youthful, casual, and slightly edgy style.</p>
                             <a href="" class="details-link">View Details</a>
                         </div>
                     </div>
@@ -76,12 +76,12 @@
                 <div class="design-box">
                     <div class="design-item">
                         <div class="design-image">
-                            <img src="{% static "Images\fashion2.jpg" %}" alt="Design Image">
+                            <img src="{% static 'Images/fashion2.png' %}" alt="Design Image">
                         </div>
                         <div class="design-content">
-                            <h3>Theme : BACK TO SCHOOL</h3>
-                            <p>Your outfit? Chic yet comfortable. A plaid skirt paired with knee-high socks, a vintage
-                                band tee, and chunky sneakers.</p>
+                            <h3>Theme : Digital Fashion</h3>
+                            <p>Combination of a blue denim jacket, black pleated skirt, and black combat boots gives off
+                                a punk-inspired vibe with a contemporary twist.</p>
                             <a href="" class="details-link">View Details</a>
                         </div>
                     </div>
@@ -91,11 +91,12 @@
                 <div class="design-box">
                     <div class="design-item">
                         <div class="design-image">
-                            <img src="{% static "Images\fashion3.jpg" %}" alt="Design Image">
+                            <img src="{% static 'Images/fashion3.png' %}" alt="Design Image">
                         </div>
                         <div class="design-content">
                             <h3>Theme : Y2K Revival</h3>
-                            <p>The early 2000s are making a comeback! Expect low-rise jeans, crop tops, and chunky sneakers. It's all about embracing that Y2K vibe.</p>
+                            <p>The colorful jacket with blue, yellow, and red panels, paired with brown cargo pants and
+                                white sneakers, suggests a modern, casual style. </p>
                             <a href="" class="details-link">View Details</a>
                         </div>
                     </div>

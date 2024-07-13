@@ -3,14 +3,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Other meta tags and stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
     <title>LAB</title>
 </head>
+
 
 <body>
     <nav class="navbar">
@@ -62,7 +65,7 @@
                 </div>
                 <div class="image-container">
                     <a href="{% url 'vote_view' %}" class="vote-btn">VOTE</a>
-                    <img src="{% static 'Images/fashion image.jpg' %}" alt="Theme Image">
+                    <img src="{% static 'Images/fashion_theme.jpg' %}" alt="Theme Image">
                     <div class="button-container">
                         <a href="{% url 'create' %}" class="participate-btn">Participate</a>
                         <a href="{% url 'win' %}" class="see-designs-btn">See Winning Designs</a>
@@ -71,13 +74,13 @@
             </div>
 
             <div class="leaderboard">
-                <h3>Top 3 Performers</h3>
+                <h3>leaderboard:</h3>
                 <ul>
-                    <li>Ryan - 1000 points</li>
-                    <li>Sheren - 800 points</li>
-                    <li>Alice - 600 points</li>
+                    <li><span class="name">1. Ryan</span> <span class="points">1000 points</span></li>
+                    <li><span class="name">2. Sheren</span> <span class="points">800 points</span></li>
+                    <li><span class="name">3. Alice</span> <span class="points">600 points</span></li>
                 </ul>
-            </div>
+            </div>            
         </div>
     </div>
 </body>
