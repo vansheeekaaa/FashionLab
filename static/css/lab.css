@@ -179,9 +179,6 @@ body {
     border-radius: 10px;
 }
 
-/* Add this CSS at the end of your existing styles */
-/* Existing CSS */
-
 .leaderboard {
     margin-top: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -193,12 +190,9 @@ body {
 }
 
 .leaderboard h3 {
-    font-family: 'Pacifico', cursive;
     font-size: 14px;
     color: #555;
     margin-top: -7px;
-    text-decoration: underline;
-    font-weight: bold;
     text-transform: uppercase;
     text-align: center;
 }
@@ -236,9 +230,6 @@ body {
     font-size: 16px;
 }
 
-
-/* Add this CSS at the end of your existing styles */
-
 .image-container {
     position: relative;
 }
@@ -252,9 +243,8 @@ body {
     display: flex;
     justify-content: space-between;
 }
-/* 
-.participate-btn,
-.see-designs-btn {
+
+.participate-btn, .see-designs-btn, .vote-btn {
     background-color: #ff3e6c;
     color: #fff;
     padding: 10px 20px;
@@ -265,78 +255,18 @@ body {
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
-    width: 161px;
-    height: 24px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.participate-btn {
-    background-color: #ff3e6c;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin: 0 10px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 161px;
-    height: 24px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-.see-designs-btn{
-    background-color: #fff;
-    color: #333;
-    padding: 10px 20px;
-    border: 2px solid #8e8181;
-    border-radius: 5px;
-    margin: 0 10px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 161px;
-    height: 24px;
+    width: 100%; /* Make buttons occupy full width of container */
+    max-width: 200px; /* Limit maximum width if needed */
+    text-align: center; /* Center text horizontally */
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.participate-btn:hover {
-    background-color: #dc1b5d;
-    /* Darker shade of the primary color */
+.participate-btn:hover, .see-designs-btn:hover, .vote-btn:hover {
+    background-color: #dc1b5d; /* Darker shade of the primary color on hover */
 }
-
-.see-designs-btn:hover {
-    border: 2px solid #4b4141;
-}
-.vote-btn {
-    position: absolute;
-    top: 231px;
-    left: -3px;
-    background-color: #160000;
-    color: #fff;
-    border: 3px solid #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 12px;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    z-index: 3;
-    width: 47px;
-    box-shadow: 0 6px 28px #8e8181;
-}
-
 
 .theme-box img {
     width: 114%;
