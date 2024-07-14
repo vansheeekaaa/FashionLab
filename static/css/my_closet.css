@@ -1,7 +1,5 @@
-
 .mobile-screen {
     background-color: #fafafa;
-    /* padding: 20px; */
     border-radius: 10px;
     margin: 20px;
     max-width: 400px;
@@ -31,7 +29,7 @@
 .closet-leaderboard .design-box {
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Increased padding */
+    padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     display: flex;
@@ -45,16 +43,16 @@
 }
 
 .design-image {
-    flex: 0 0 200px; /* Increased width for the image container */
+    flex: 0 0 200px;
     margin-right: 20px;
 }
 
 .design-image img {
-    height: auto; /* Maintain aspect ratio */
-    max-height: 600px; /* Set a new maximum height */
+    height: auto; 
+    max-height: 600px; 
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure the image takes up the full width of its container */
+    width: 100%; 
 }
 
 
@@ -63,35 +61,35 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: auto; /* Allow content height to adjust based on text */
-    margin-left: -20px; /* Adjusted to fit the increased image width */
+    height: auto;
+    margin-left: -20px;
 }
 
 .design-text {
     overflow: visible;
     text-overflow: clip;
     display: inline-block;
-    -webkit-line-clamp: 3; /* Adjusted to show up to 3 lines */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     max-width: calc(100% - 20px);
     margin: 0;
     margin-left: 15px;
-    font-size: 14px; /* Increased font size */
+    font-size: 14px; 
     color: #5a5252;
-    height: auto; /* Allow height to adjust based on content */
+    height: auto; 
 }
 
 .remove-btn {
     background-color: #ff4081;
     color: #fff;
-    padding: 10px 20px; /* Increased padding */
+    padding: 10px 20px; 
     border-radius: 4px;
     text-decoration: none;
-    font-size: 12px; /* Increased font size */
+    font-size: 12px;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    margin-top: 10px; /* Increased margin */
+    margin-top: 10px;
     margin-left: 10px;
     align-self: flex-start;
 }

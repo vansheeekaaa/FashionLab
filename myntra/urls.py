@@ -23,5 +23,5 @@ admin.site.index_title = "Welcome to FashionLab Admin Panel"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('trends.urls')),  # Include trends app URLs
+    path('', include('trends.urls')), 
 ]

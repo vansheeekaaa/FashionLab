@@ -60,7 +60,6 @@ body {
 
 .navbar-search button {
     border-width: 1px 0 1px 1px;
-    /* top, right, bottom, left */
     border-style: solid;
     border-color: #ccc;
     border-top-left-radius: 4px;
@@ -92,7 +91,6 @@ body {
 
 .navbar-icons a:hover {
     color: #ff4081;
-    /* Change this color to match your brand's color */
 }
 
 
@@ -147,7 +145,6 @@ body {
     top: 42px;
     padding: 10px;
     z-index: 2;
-    /* Ensure it's above the image */
     font-size: 24px;
     font-style: italic;
     color: #fff;
@@ -188,8 +185,8 @@ body {
     padding: 12px;
     background-color: #fff;
     border-radius: 10px;
-    max-height: 129px; /* Adjust max height as needed */
-    overflow-y: auto; /* Add vertical scrollbar if content exceeds max height */
+    max-height: 129px; 
+    overflow-y: auto; 
 }
 
 .leaderboard h3 {
@@ -216,7 +213,7 @@ body {
     padding: 10px 18px;
     background-color: #ffc8c8;
     border: 2px solid #d5d1e9;
-    color: #141414 !important; /* Force white text */
+    color: #141414 !important; 
 }
 
 .leaderboard ul li:last-child {
@@ -259,9 +256,9 @@ body {
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
-    width: 100%; /* Make buttons occupy full width of container */
-    max-width: 200px; /* Limit maximum width if needed */
-    text-align: center; /* Center text horizontally */
+    width: 100%;
+    max-width: 200px; 
+    text-align: center; 
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -270,8 +267,8 @@ body {
 
 .see-designs-btn {
     display: block;
-    margin: 0 auto; /* This centers the button horizontally */
-    margin-top: 10px; /* Adjust top margin as needed */
+    margin: 0 auto; 
+    margin-top: 10px; 
 }
 
 .hidden {
@@ -292,7 +289,7 @@ body {
 }
 
 .participate-btn:hover, .see-designs-btn:hover, .vote-btn:hover {
-    background-color: #dc1b5d; /* Darker shade of the primary color on hover */
+    background-color: #dc1b5d; 
 }
 
 .theme-box img {
