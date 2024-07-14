@@ -1,6 +1,7 @@
 .mobile-screen {
     padding: 20px;
-    max-height: calc(100vh - 60px); /* Adjust according to the navbar height */
+    max-height: calc(100vh - 60px);
+    /* Adjust according to the navbar height */
     overflow-y: auto;
 }
 
@@ -15,30 +16,10 @@
     text-align: center;
 }
 
-.filter-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.filter-section select {
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 15px;
-    width: 111px;
-    cursor: pointer;
-}
-
-.filter-section #current-theme {
-    font-size: 14px;
-    color: #333;
-    margin-right: 19px;
-}
-
 .closet-leaderboard {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 }
 
 .closet-leaderboard .design-box {
@@ -63,9 +44,10 @@
 }
 
 .design-image img {
-    height: 60px;
+    height: 92px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 60%;
 }
 
 .design-content {
@@ -87,7 +69,8 @@
     margin: 0;
     font-size: 13px;
     color: #5a5252;
-    height: 2.4em; /* Adjust to fit the exact height of 2 lines */
+    height: 2.4em;
+    /* Adjust to fit the exact height of 2 lines */
 }
 
 .remove-btn {
