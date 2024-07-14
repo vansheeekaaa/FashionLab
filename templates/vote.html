@@ -52,7 +52,7 @@
     <div class="mobile-screen">
         <div class="screen-content">
             <div class="head-space">
-                <a href="{% url 'index' %}"><i class="fas fa-chevron-left"></i></a>
+                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a>
                 <h2>VOTES</h2>
                 <a href="{% url 'my_closet' %}"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
@@ -68,6 +68,7 @@
                         <button class="closet-btn">
                             <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
                         </button>
+                        <div class="closet-message" style="display:none;">Added to Closet!</div>                        
                     </div>
                 </div>
                 {% endfor %}
