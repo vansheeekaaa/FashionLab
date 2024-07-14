@@ -1,7 +1,13 @@
+
 .mobile-screen {
-    padding: 20px;
-    max-height: calc(100vh - 60px);
-    /* Adjust according to the navbar height */
+    background-color: #fafafa;
+    /* padding: 20px; */
+    border-radius: 10px;
+    margin: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 45px;
+    height: 602px;
     overflow-y: auto;
 }
 
@@ -25,7 +31,7 @@
 .closet-leaderboard .design-box {
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 12px;
+    padding: 20px; /* Increased padding */
     background-color: #fff;
     border-radius: 10px;
     display: flex;
@@ -39,51 +45,54 @@
 }
 
 .design-image {
-    flex: 0 0 100px;
+    flex: 0 0 200px; /* Increased width for the image container */
     margin-right: 20px;
 }
 
 .design-image img {
-    height: 92px;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 600px; /* Set a new maximum height */
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 60%;
+    width: 100%; /* Ensure the image takes up the full width of its container */
 }
+
 
 .design-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 60px;
-    margin-left: -38px;
+    height: auto; /* Allow content height to adjust based on text */
+    margin-left: -20px; /* Adjusted to fit the increased image width */
 }
 
 .design-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
+    overflow: visible;
+    text-overflow: clip;
+    display: inline-block;
+    -webkit-line-clamp: 3; /* Adjusted to show up to 3 lines */
     -webkit-box-orient: vertical;
     max-width: calc(100% - 20px);
     margin: 0;
-    font-size: 13px;
+    margin-left: 15px;
+    font-size: 14px; /* Increased font size */
     color: #5a5252;
-    height: 2.4em;
-    /* Adjust to fit the exact height of 2 lines */
+    height: auto; /* Allow height to adjust based on content */
 }
 
 .remove-btn {
     background-color: #ff4081;
     color: #fff;
-    padding: 8px 16px;
+    padding: 10px 20px; /* Increased padding */
     border-radius: 4px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px; /* Increased font size */
     font-weight: bold;
     border: none;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 10px; /* Increased margin */
+    margin-left: 10px;
     align-self: flex-start;
 }
 
