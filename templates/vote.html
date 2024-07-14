@@ -59,58 +59,24 @@
             <div class="closet-leaderboard">
                 {% for design in designs %}
                 <div class="design-box" id="design-{{ design.id }}">
-                    <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate
-                        camera-controls></model-viewer>
+                    <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate camera-controls></model-viewer>
+                    <p class="design-text">Designed by {{ design.name }}</p>
                     <div class="design-actions">
-
-                        <!-- <div class="design-content">
-                            <p class="design-text">{{ design.name }}</p>
-                        </div> -->
-
                         <button class="upvote-btn" data-design-id="{{ design.id }}">
-                            <i class="fa-regular fa-heart"></i> <span id="votes-{{ design.id }}">{{ design.votes
-                                }}</span>
+                            <i class="fa-regular fa-heart"></i> <span id="votes-{{ design.id }}">{{ design.votes }}</span>
                         </button>
                         <button class="closet-btn">
                             <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
                         </button>
                     </div>
-
                 </div>
                 {% endfor %}
             </div>
-
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const upvoteButtons = document.querySelectorAll('.upvote-btn');
-
-            upvoteButtons.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const designId = this.getAttribute('data-design-id');
-                    const voteCountElement = document.getElementById(`votes-${designId}`);
-
-                    fetch(`/design/${designId}/upvote/`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': '{{ csrf_token }}'
-                        },
-                        // body: JSON.stringify({}), // Include data if needed
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            voteCountElement.textContent = data.votes;
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                });
-            });
-        });
-    </script>
+    <script src="{% static 'js/vote.js' %}"></script>
 </body>
 
 </html>
+
