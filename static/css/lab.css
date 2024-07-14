@@ -98,13 +98,15 @@ body {
 
 .mobile-screen {
     background-color: #fafafa;
-    /* padding: 20px; */
     border-radius: 10px;
     margin: 20px;
+    margin-top: 30px; 
     max-width: 400px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     height: 602px;
 }
+
 
 .head-space {
     background-color: #fff;

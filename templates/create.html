@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avatar Customization - Create</title>
+    <title>Create Design</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -50,7 +50,9 @@
     <div class="content">
         <div class="top-bar">
             <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a>
-            <h2>AVATAR CUSTOMIZATION</h2>
+            <div>
+                <h3> CREATE.      COPY LINK.      SUBMIT DESIGN.</h3>
+            </div>
             <a href="{% url 'my_closet' %}"><i class="fa-solid fa-bag-shopping"></i></a>
         </div>
 
@@ -58,7 +60,7 @@
             <iframe id="frame" class="frame" allow="camera *; microphone *; clipboard-write" frameborder="0"></iframe>
         </div>
 
-        <button onclick="submitDesign()" class="submit-design-btn">Submit Design</button>
+        <button onclick="submitDesign()" class="submit-design-btn">SUBMIT DESIGN</button>
     </div>
 
     <script>
