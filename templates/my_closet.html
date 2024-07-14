@@ -51,7 +51,7 @@
     <div class="mobile-screen">
         <div class="screen-content">
             <div class="head-space">
-                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a> <!-- Icon before heading -->
+                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a>
                 <h2>MY CLOSET</h2>
                 <i class="fa-regular fa-user"></i>
             </div>
@@ -63,8 +63,8 @@
                         </div>
                         <div class="design-content">
                             <p class="design-text">The light blue hoodie with floral and skull graphics, paired with
-                                black cargo pants and blue sneakers, embodies a relaxed yet stylish urban look. </p>
-                            <button onclick="removeDesign('design-1')" class="remove-btn">Remove</button>
+                                black cargo pants and blue sneakers, embodies a relaxed yet stylish urban look.</p>
+                            <button onclick="removeDesign('design-1')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                         <div class="design-content">
                             <p class="design-text">The blue denim jacket, black pleated skirt, and black boots with blue
                                 laces are indicative of a modern, edgy street style.</p>
-                            <button onclick="removeDesign('design-2')" class="remove-btn">Remove</button>
+                            <button onclick="removeDesign('design-2')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
@@ -87,8 +87,8 @@
                         </div>
                         <div class="design-content">
                             <p class="design-text">The color-blocked jacket with yellow, blue, and red sections, paired
-                                with brown cargo pants and blue sneakers, evokes a vintage yet modern look. T</p>
-                            <button onclick="removeDesign('design-3')" class="remove-btn">Remove</button>
+                                with brown cargo pants and blue sneakers, evokes a vintage yet modern look.</p>
+                            <button onclick="removeDesign('design-3')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
@@ -98,9 +98,9 @@
                             <img src="{% static 'Images/fashion4.png' %}" alt="Design Image">
                         </div>
                         <div class="design-content">
-                            <p class="design-text"> The puffy jacket, distressed jeans, and sneakers are characteristic
+                            <p class="design-text">The puffy jacket, distressed jeans, and sneakers are characteristic
                                 of contemporary street style, often seen in urban environments.</p>
-                            <button onclick="removeDesign('design-4')" class="remove-btn">Remove</button>
+                            <button onclick="removeDesign('design-4')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                             <p class="design-text">The hooded sweatshirt with a nature-themed print, featuring trees and
                                 foliage in autumnal colors, paired with dark green pants and white sneakers with blue
                                 accents, suggests a relaxed, outdoor-oriented style.</p>
-                            <button onclick="removeDesign('design-5')" class="remove-btn">Remove</button>
+                            <button onclick="removeDesign('design-5')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
@@ -125,8 +125,8 @@
                         <div class="design-content">
                             <p class="design-text">Dress yourself up in blue jeans, a red and grey jacket with
                                 blue stripes on the sleeves, and white sneakers, which are typical of casual, everyday
-                                wear in video games. </p>
-                            <button onclick="removeDesign('design-6')" class="remove-btn">Remove</button>
+                                wear in video games.</p>
+                            <button onclick="removeDesign('design-6')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
@@ -134,6 +134,15 @@
         </div>
     </div>
 
+    <script>
+        function removeDesign(designId) {
+            var designBox = document.getElementById(designId);
+            if (designBox) {
+                designBox.remove(); // Remove the entire design box
+            }
+        }
+    </script>
+    
     <script src="{% static 'js/closet.js' %}"></script>
 </body>
 
