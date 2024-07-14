@@ -183,7 +183,7 @@ body {
 
 .leaderboard {
     margin-top: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(39, 39, 39, 0.966);
     padding: 12px;
     background-color: #fff;
     border-radius: 10px;
@@ -213,9 +213,9 @@ body {
     align-items: center;
     border-radius: 20px;
     padding: 10px 18px;
-    background-color: #6e7c7e;
+    background-color: #ffc8c8;
     border: 2px solid #d5d1e9;
-    color: #ffffff !important; /* Force white text */
+    color: #141414 !important; /* Force white text */
 }
 
 .leaderboard ul li:last-child {
@@ -247,9 +247,6 @@ body {
 }
 
 
-
-
-
 .participate-btn, .see-designs-btn, .vote-btn {
     background-color: #ff3e6c;
     color: #fff;
@@ -268,6 +265,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.see-designs-btn {
+    display: block;
+    margin: 0 auto; /* This centers the button horizontally */
+    margin-top: 10px; /* Adjust top margin as needed */
+}
+
+.hidden {
+    display: none;
+}
+
+#added-to-closet {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .participate-btn:hover, .see-designs-btn:hover, .vote-btn:hover {

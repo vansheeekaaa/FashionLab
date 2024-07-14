@@ -174,7 +174,7 @@ body {
 }
 
 .design-actions .closet-btn:hover {
-    background-color: #ddd; /* Change hover background color as desired */
+    background-color: #dc1b5d; /* Change hover background color as desired */
 }
 
 .design-text {
@@ -188,4 +188,26 @@ body {
     text-align: center; /* Center align the vote count */
     margin-top: 5px; /* Add margin top for spacing */
 }
+
+.design-actions {
+    position: relative; /* Set position relative for absolute child */
+}
+
+.closet-message {
+    color: green; /* Green text */
+    font-size: 16px; /* Bigger font size */
+    text-align: center; /* Center the message */
+    position: absolute; /* Allow for overlapping */
+    top: 0; /* Position it at the top of the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center it properly */
+    background: white; /* White background */
+    border: 2px solid green; /* Green border */
+    padding: 10px; /* Add padding */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+
 

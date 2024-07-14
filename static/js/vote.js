@@ -42,3 +42,18 @@ function getCookie(name) {
     return cookieValue;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const closetButtons = document.querySelectorAll('.closet-btn');
+
+    closetButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const messageDiv = button.nextElementSibling; // Get the next sibling, which is the message div
+            messageDiv.style.display = 'block'; // Show the message
+            setTimeout(() => {
+                messageDiv.style.display = 'none'; // Hide the message after 1 second
+            }, 1000); // 1000 milliseconds = 1 second
+        });
+    });
+});
+
+
