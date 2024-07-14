@@ -228,7 +228,7 @@ body {
 
 .leaderboard ul li strong {
     font-weight: bold;
-    color: #333;
+    color: #ffbee9;
     font-size: 16px;
 }
 
@@ -245,6 +245,10 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+
+
+
 
 .participate-btn, .see-designs-btn, .vote-btn {
     background-color: #ff3e6c;
