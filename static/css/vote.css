@@ -129,22 +129,22 @@ body {
     gap: 10px;
     /* Space between icon and text */
     font-size: 16px;
+    color: fff;
 }
 
-/*
-.upvote-btn{
-    
-    color: fff;
+.upvote-btn {
     margin-right: 161px;
 }
-.upvote-btn:hover{
+
+.upvote-btn:hover {
     background-color: #dc1b5d;
 }
-.closet-btn{
-    background-color: #f0f0f0;
+
+.closet-btn {
+    /* background-color: #f0f0f0; */
+    margin-right: 150px;
 }
-    */
-    
+
 /* .design-actions .upvote-btn i,
 .design-actions .closet-btn i {
    
