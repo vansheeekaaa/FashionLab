@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/vote.css' %}">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <title>Votes</title>
-    <style>
-        /* Additional styles if needed */
-    </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="navbar-logo">
@@ -53,34 +52,43 @@
     <div class="mobile-screen">
         <div class="screen-content">
             <div class="head-space">
-                <a href="{% url 'lab' %}"><i class="fas fa-chevron-left"></i></a> <!-- Icon before heading -->
-                <h2>Votes</h2>
-                <i class="fa-regular fa-user"></i>
+                <a href="{% url 'index' %}"><i class="fas fa-chevron-left"></i></a>
+                <h2>VOTES</h2>
+                <a href="{% url 'my_closet' %}"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
             <div class="closet-leaderboard">
                 {% for design in designs %}
                 <div class="design-box" id="design-{{ design.id }}">
-                    <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate camera-controls></model-viewer>
+                    <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate
+                        camera-controls></model-viewer>
                     <div class="design-actions">
-                        <button class="upvote-btn" data-design-id="{{ design.id }}"><i class="fa-regular fa-heart"></i></button> <!-- Upvote button -->
-                        <a href="#"><i class="fa-solid fa-hanger"></i></a> <!-- Add to closet icon -->
+
+                        <!-- <div class="design-content">
+                            <p class="design-text">{{ design.name }}</p>
+                        </div> -->
+
+                        <button class="upvote-btn" data-design-id="{{ design.id }}">
+                            <i class="fa-regular fa-heart"></i> <span id="votes-{{ design.id }}">{{ design.votes
+                                }}</span>
+                        </button>
+                        <button class="closet-btn">
+                            <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
+                        </button>
                     </div>
-                    <div class="design-content">
-                        <p class="design-text">{{ design.name }}</p>
-                        <p class="vote-count">Votes: <span id="votes-{{ design.id }}">{{ design.votes }}</span></p>
-                    </div>
+
                 </div>
                 {% endfor %}
             </div>
+
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const upvoteButtons = document.querySelectorAll('.upvote-btn');
 
             upvoteButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const designId = this.getAttribute('data-design-id');
                     const voteCountElement = document.getElementById(`votes-${designId}`);
 
@@ -92,16 +100,17 @@
                         },
                         // body: JSON.stringify({}), // Include data if needed
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        voteCountElement.textContent = data.votes;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+                        .then(response => response.json())
+                        .then(data => {
+                            voteCountElement.textContent = data.votes;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
                 });
             });
         });
     </script>
 </body>
+
 </html>

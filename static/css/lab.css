@@ -158,12 +158,14 @@ body {
     line-height: 1px;
     color: #fff;
     font-family: 'Permanent Marker', cursive;
+    z-index: 2;
 }
 
 .theme-text #text1 {
     color: #ebebeb;
     font-size: 31px;
     text-shadow: 2px 6px 2px rgb(97 82 82);
+    z-index: 2;
 }
 
 .theme-text #theme {

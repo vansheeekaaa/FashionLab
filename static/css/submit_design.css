@@ -1,5 +1,4 @@
-/* Custom styles for submit_design.html */
-
+/*
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -27,9 +26,8 @@ body {
 }
 
 .navbar-links a:hover {
-    color: #f00; /* Change hover color as desired */
+    color: #f00; 
 }
-
 .navbar-search {
     display: flex;
     align-items: center;
@@ -57,8 +55,9 @@ body {
 }
 
 .icon-item:hover {
-    color: #f00; /* Change hover color as desired */
+    color: #f00; 
 }
+*/
 
 .mobile-screen {
     padding: 20px;
@@ -101,7 +100,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="url"] {
-    width: 100%;
+    width: 94%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -110,7 +109,7 @@ input[type="url"] {
 }
 
 .submit-btn {
-    background-color: #f00;
+    background-color: #ff3e6c;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -121,5 +120,5 @@ input[type="url"] {
 }
 
 .submit-btn:hover {
-    background-color: #d00; /* Darker shade on hover */
+    background-color: #ff4081;
 }
