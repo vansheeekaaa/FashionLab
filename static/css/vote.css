@@ -2,68 +2,108 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #ffe2e7;
     margin: 0;
     padding: 0;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    justify-content: space-between;
     padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
 }
 
 .navbar-logo img {
-    height: 40px;
+    height: 35px;
 }
 
 .navbar-links a {
+    margin: 0 15px;
     text-decoration: none;
-    color: #333;
-    margin: 0 10px;
+    color: #000;
+    font-weight: bold;
 }
 
 .navbar-links a:hover {
-    color: #f00;
-    /* Change hover color as desired */
+    color: #ff4081;
 }
 
 .navbar-search {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 0 10px;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
-.navbar-search input[type="text"] {
-    border: none;
-    padding: 8px;
-    width: 300px;
-    outline: none;
+.navbar-search input {
+    padding: 5px 10px;
+    border-width: 1px 1px 1px 0px;
+    border-style: solid;
+    border-color: #ccc;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 376px;
+    height: 37px;
 }
 
-.navbar-icons {
+.navbar-search button {
+    border-width: 1px 0 1px 1px; /* top, right, bottom, left */
+    border-style: solid;
+    border-color: #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 37px;
+    height: 49px;
+}
+
+.navbar-icons a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.icon-item {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
+.navbar-icons a i {
+    margin-bottom: 5px;
 }
 
-.icon-item:hover {
-    color: #f00;
-    /* Change hover color as desired */
+.navbar-icons a:hover {
+    color: #ff4081; /* Change this color to match your brand's color */
 }
 
 .mobile-screen {
-    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    height: 602px;
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+}
+
+.head-space {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.head-space h2 {
+    margin: 0;
+    font-size: 18px;
+    margin-left: 10px;
+    color: #746a6a;
 }
 
 .screen-content {
@@ -73,37 +113,30 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.head-space {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.head-space h2 {
-    margin: 0 10px;
-}
-
 .closet-leaderboard {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .design-box {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #fff;
-    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    width: 300px; /* Adjust width as needed */
+    margin: 0 15px 20px 15px; /* Adjust margins as needed */
+}
+
+
+
+.design-box:hover {
+    transform: translateY(-5px); /* Lift the box on hover */
 }
 
 .design-box model-viewer {
     width: 100%;
-    height: 500px;
-    /* Adjust the height as needed */
+    height: 400px; /* Adjust the height as needed */
     border-radius: 10px;
 }
 
@@ -111,9 +144,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: -1px;
-    gap: 10px;
-    /* Adjust gap between buttons */
+    margin-top: 10px; /* Adjust top margin as needed */
 }
 
 .design-actions .upvote-btn,
@@ -123,51 +154,38 @@ body {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    color: white; /* Set button text color to white */
     display: flex;
     align-items: center;
-    gap: 10px;
-    /* Space between icon and text */
-    font-size: 16px;
-    color: fff;
+    gap: 10px; /* Space between icon and text */
 }
 
 .upvote-btn {
-    margin-right: 161px;
+    margin-right: 20px; /* Adjust margin-right as needed */
 }
 
 .upvote-btn:hover {
-    background-color: #dc1b5d;
+    background-color: #dc1b5d; /* Change hover background color as desired */
 }
 
 .closet-btn {
-    /* background-color: #f0f0f0; */
-    margin-right: 150px;
+    margin-right: 20px; /* Adjust margin-right as needed */
 }
 
-/* .design-actions .upvote-btn i,
-.design-actions .closet-btn i {
-   
-} */
-
-.design-actions .upvote-btn:hover,
 .design-actions .closet-btn:hover {
-    background-color: #ddd;
-    /* Change hover background color as desired */
+    background-color: #ddd; /* Change hover background color as desired */
 }
 
 .design-text {
     font-size: 16px;
     font-weight: bold;
-    text-align: center;
-    /* Center align the design name */
-    margin-top: 10px;
-    /* Add margin top for spacing */
+    text-align: center; /* Center align the design name */
+    margin-top: 10px; /* Add margin top for spacing */
 }
 
 .vote-count {
-    text-align: center;
-    /* Center align the vote count */
-    margin-top: 5px;
-    /* Add margin top for spacing */
+    text-align: center; /* Center align the vote count */
+    margin-top: 5px; /* Add margin top for spacing */
 }
+
