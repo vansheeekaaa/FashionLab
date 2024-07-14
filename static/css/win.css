@@ -1,3 +1,5 @@
+/* Styles for Hall of Fame: Previous Winners section */
+
 .head-space a {
     text-decoration: none;
     color: inherit;
@@ -5,28 +7,35 @@
 
 .design-box {
     margin-bottom: 20px;
+    overflow: hidden; /* Hide overflow to control scroll */
+    height: 230px; /* Set a fixed height for each design box */
+    border-radius: 8px; /* Add border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .design-item {
     display: flex;
     align-items: center;
+    height: 100%; /* Ensure items fill the height */
 }
 
 .design-image {
-    flex: 0 0 150px;
+    flex: 0 0 150px; /* Keep width of image container */
     margin-right: 20px;
+    height: auto; /* Allow image height to adjust */
 }
 
 .design-image img {
-    width: 81%;
-    height: 165px;
+    width: 100%; /* Adjust to fill the container width */
+    height: auto;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 18px;
 }
 
 .design-content {
     flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding inside the content */
 }
 
 .design-content h3 {
@@ -40,15 +49,7 @@
     font-size: 14px;
     color: #666;
     margin-bottom: 10px;
-    /* Limit the height and overflow settings */
-    max-height: 60px; /* Adjust this value to control the maximum height */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Number of lines to show */
-    -webkit-box-orient: vertical;
 }
-
 
 .details-link {
     display: inline-block;
@@ -66,20 +67,21 @@
 }
 
 .win-leaderboard {
-    margin-top: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Increase margin for spacing */
     padding: 12px;
     background-color: #fff;
     border-radius: 10px;
-    height: 174px;
+    height: 260px; /* Adjust height to accommodate scrollbar */
+    overflow: hidden; /* Hide overflow for the main container */
 }
 
 .screen-content {
-    overflow: hidden;
+    overflow-y: auto; /* Enable scrolling for the content area */
     max-height: 600px;
 }
 
 .mobile-screen {
-    overflow: hidden;
+    overflow-y: auto; /* Enable scrolling for mobile screens */
     max-height: 600px;
 }
+
