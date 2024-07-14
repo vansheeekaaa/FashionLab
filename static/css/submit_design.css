@@ -1,88 +1,133 @@
-/*
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: rgb(255, 226, 231);
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    justify-content: space-between;
     padding: 10px 20px;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo img {
-    height: 40px;
+    height: 35px;
+}
+
+.navbar-links {
+    font-size: 14px;
 }
 
 .navbar-links a {
+    margin: 0 15px;
     text-decoration: none;
     color: #333;
-    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .navbar-links a:hover {
-    color: #f00; 
+    color: #ff4081;
 }
+
+.new-label {
+    color: #ff4081;
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .navbar-search {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 0 10px;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-search input[type="text"] {
+.navbar-search input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px; /* Adjusted for better design */
+    transition: border-color 0.3s ease;
+}
+
+.navbar-search input:focus {
+    border-color: #ff4081;
+}
+
+.navbar-search button {
     border: none;
-    padding: 8px;
-    width: 300px;
-    outline: none;
+    background-color: #ff4081;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-left: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-search button:hover {
+    background-color: #ff3e6c;
 }
 
 .navbar-icons {
     display: flex;
-    align-items: center;
+    font-size: 14px;
 }
 
-.icon-item {
-    margin: 0 10px;
+.navbar-icons a {
+    margin-left: 20px;
     text-decoration: none;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease;
 }
 
-.icon-item:hover {
-    color: #f00; 
+.navbar-icons a:hover {
+    color: #ff4081;
 }
-*/
 
 .mobile-screen {
-    padding: 20px;
-}
-
-.screen-content {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #fafafa;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .head-space {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 .head-space h2 {
-    margin: 0 10px;
+    margin: 0;
+    font-size: 20px;
+    color: #746a6a;
+}
+
+.head-space i {
+    margin-right: 10px;
 }
 
 .submit-form {
-    max-width: 600px;
-    margin: auto;
+    margin-top: 20px;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
 }
 
 .form-group {
@@ -94,25 +139,36 @@ body {
 label {
     font-weight: bold;
     margin-bottom: 5px;
+    color: #555;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="url"] {
-    width: 94%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus {
+    border-color: #ff4081;
 }
 
 .submit-btn {
-    background-color: #ff3e6c;
+    display: block;        
+    width: 200px;         
+    background-color: #ff4081;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
@@ -120,5 +176,5 @@ input[type="url"] {
 }
 
 .submit-btn:hover {
-    background-color: #ff4081;
+    background-color: #ff3e6c;
 }
