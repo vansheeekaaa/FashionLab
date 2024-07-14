@@ -30,12 +30,10 @@ body {
 
 .navbar-links a:hover {
     color: #ff4081;
-    /* Change this color to match your brand's color */
 }
 
 .new-label {
     color: #ff4081;
-    /* Change this color to match your brand's color */
     font-size: 12px;
     font-weight: bold;
 }
@@ -61,7 +59,6 @@ body {
 
 .navbar-search button {
     border-width: 1px 0 1px 1px;
-    /* top, right, bottom, left */
     border-style: solid;
     border-color: #ccc;
     border-top-left-radius: 4px;
@@ -95,7 +92,6 @@ body {
     color: #ff4081;
 }
 
-/* Promotional Header Styles */
 .promo-header {
     background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
     text-align: center;
@@ -118,71 +114,25 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
-/* 
-.promo-banner {
-    background: linear-gradient(to right, #ffa726, #fb8c00);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.banner-content {
-    display: flex;
-    align-items: center;
-}
-
-.banner-tag {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-
-.tag-content {
-    display: flex;
-    align-items: center;
-}
-
-.tag-content span {
-    color: #fff;
-    font-weight: bold;
-}
-
-.banner-text {
-    margin-left: 20px;
-    color: #fff;
-}
-
-.banner-text h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.promo-info {
-    font-size: 14px;
-    margin: 5px 0 0 0;
-} */
 
 .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px; /* Adjust the gap between images as needed */
+    gap: 10px; 
 }
 
 .itemImg {
-    max-width: 278px; /* Ensure all images are of uniform width */
-    margin-bottom: 10px; /* Add spacing between images */
+    max-width: 278px; 
+    margin-bottom: 10px; 
 }
 .section1 {
-    overflow-x: auto; /* Enable horizontal scrolling if necessary */
-    white-space: nowrap; /* Prevent wrapping of images */
+    overflow-x: auto; 
+    white-space: nowrap; 
 }
 
 .homeImg {
     margin-top: 5px;
-    max-width: 100%; /* Ensure the image does not exceed its container's width */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    height: auto; 
 }

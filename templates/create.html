@@ -92,7 +92,7 @@
 
             if (json.eventName === 'v1.avatar.exported') {
                 console.log(`Avatar URL: ${json.data.url}`);
-                avatarUrlField.value = json.data.url; // Update the value of the hidden input field
+                avatarUrlField.value = json.data.url; 
             }
         }
 
@@ -105,7 +105,6 @@
         }
 
         function submitDesign() {
-            // Perform any necessary validation or processing before redirecting
             window.location.href = '{% url 'submit_design' %}';
         }
     </script>
