@@ -30,7 +30,7 @@ Your voice matters! With the focus on co-creation our Fashion Lab allows users t
 
 ### Clone the Repository:
      ```console
-       git clone https://github.com/vansheeekaaa/project01.git
+       git clone https://github.com/vansheeekaaa/FashionLab.git
        cd FashionLab
   
 ### Setting up database:
