@@ -81,8 +81,8 @@ FashionLab introduces a dynamic "LAB" section within Myntra, where users engage 
 
 ## Future Scope
 This project holds immense potential for future development in various directions, promising to further revolutionize the fashion industry:
--**AI Integration**: The generated GLB files can be analyzed to get info regarding the most prominent design combinations, preferred colours, etc
--**AR/VR Integration**: With the rise of AR/VR, a virtual try-on feature and virtual trial rooms can be implemented, further enhancing the user experience. 
+- **AI Integration**: The generated GLB files can be analyzed to get info regarding the most prominent design combinations, preferred colours, etc
+- **AR/VR Integration**: With the rise of AR/VR, a virtual try-on feature and virtual trial rooms can be implemented, further enhancing the user experience. 
 
 ---
 This project is built as part of the Myntra Hackerramp Hackathon by Team Valora:
