@@ -17,8 +17,7 @@ def index(request):
     return render(request, 'index.html')
 
 def lab(request):
-    designs = DesignSubmission.objects.all()
-    return render(request, 'lab.html', {'designs': designs})
+    return render(request, 'lab.html')
 
 def win(request):
     return render(request, 'win.html')
