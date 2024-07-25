@@ -25,7 +25,7 @@
             <a href="#">HOME & LIVING</a>
             <a href="#">BEAUTY</a>
             <a href="#">STUDIO</a>
-            <a href="#">LAB <span class="new-label">NEW</span></a>
+            <a href="{% url 'lab' %}">LAB <span class="new-label">NEW</span></a>
         </div>
         <div class="navbar-search">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -75,13 +75,19 @@
         </div>
     </div>
 
+    <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Login or Signup</h2>
-            <form>
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Full Name" required>
+            <h2>Login</h2>
+            <div class="error-message">
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+            </div>
+            <!-- Login Form -->
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                 <label for="password">Password</label>
@@ -89,37 +95,35 @@
                 <p>By continuing, I agree to the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></p>
                 <button type="submit" class="continue-btn">Continue</button>
             </form>
+            <!-- Signup Link -->
+            <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
             <p><a href="#">Have trouble logging in? Get help</a></p>
         </div>
     </div>
 
-
-
-
     <script>
         var modal = document.getElementById("loginModal");
-
         var span = document.getElementsByClassName("close")[0];
-
+    
         window.onload = function () {
-            setTimeout(function () {
-                modal.style.display = "block";
-            }, 5000);
+            // Show the modal only if the user is not authenticated
+            {% if not user_authenticated %}
+                setTimeout(function () {
+                    modal.style.display = "block";
+                }, 2000);
+            {% endif %}
         };
-
+    
         span.onclick = function () {
             modal.style.display = "none";
         };
-
+    
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         };
-
     </script>
-
-
 </body>
 
 </html>

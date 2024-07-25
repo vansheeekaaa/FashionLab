@@ -11,4 +11,9 @@ urlpatterns = [
     path('my-closet/', views.my_closet, name='my_closet'),
     path('success/', views.success, name='success'),
     path('design/<int:design_id>/upvote/', views.upvote_design, name='upvote_design'), 
+    path('signup/', views.signup, name='signup'),
+    path('profile/', views.profile, name='profile'),
+    path('logout/', views.user_logout, name='logout'), 
+    path('login/', views.user_login, name='login'),  # Add this line
 ]
+
