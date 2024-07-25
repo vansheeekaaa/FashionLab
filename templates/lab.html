@@ -13,7 +13,6 @@
     <title>LAB</title>
 </head>
 
-
 <body>
     <nav class="navbar">
         <div class="navbar-logo">
@@ -63,7 +62,7 @@
                     <a href="{% url 'create' %}" class="participate-btn">Participate</a>
                     <a href="{% url 'vote_view' %}" class="vote-btn">Vote</a>
                 </div>
-            </div>                  
+            </div>
             <div class="leaderboard">
                 <h3>Topping the Charts!</h3>
                 <ul>
@@ -72,9 +71,55 @@
                     <li><span class="name">3. ALICE</span> <span class="points">600 points</span></li>
                 </ul>
                 <a href="{% url 'win' %}" class="see-designs-btn">Previous Trendsetters</a>
-            </div>            
+            </div>
         </div>
     </div>
-</body>
-</html>
 
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login or Signup</h2>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <p>By continuing, I agree to the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></p>
+                <button type="submit" class="continue-btn">Continue</button>
+            </form>
+            <p><a href="#">Have trouble logging in? Get help</a></p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        var modal = document.getElementById("loginModal");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        window.onload = function () {
+            setTimeout(function () {
+                modal.style.display = "block";
+            }, 5000);
+        };
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+    </script>
+
+
+</body>
+
+</html>
