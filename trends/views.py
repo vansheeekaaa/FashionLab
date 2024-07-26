@@ -100,6 +100,9 @@ def vote_view(request):
 
 def upvote_design(request, design_id):
     if request.method == 'POST':
+        if not request.user.is_authenticated:
+            return JsonResponse({'error': 'Unauthorized'}, status=401)
+
         design = get_object_or_404(DesignSubmission, pk=design_id)
         user = request.user
 
@@ -119,4 +122,5 @@ def upvote_design(request, design_id):
         design.save()
         return JsonResponse({'votes': design.votes, 'upvoted': upvoted})
 
-    return JsonResponse({'error': 'POST request required'})
+    return JsonResponse({'error': 'POST request required'}, status=405)
+
