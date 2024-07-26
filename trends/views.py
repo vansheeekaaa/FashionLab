@@ -9,7 +9,6 @@ from django.contrib.auth.models import User
 def profile(request):
     return render(request, 'profile.html')
 
-
 def user_login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -28,7 +27,6 @@ def user_login(request):
             return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
 
     return render(request, 'lab.html', {'show_login': True})
-
 
 def signup(request):
     if request.method == 'POST':
@@ -70,7 +68,6 @@ def submit_design(request):
 
     return render(request, 'submit_design.html')
 
-
 def index(request):
     return render(request, 'index.html')
 
@@ -82,15 +79,14 @@ def win(request):
     return render(request, 'win.html')
 
 def create(request):
+    user_authenticated = request.user.is_authenticated
     if request.method == 'POST':
-
-        if request.user.is_authenticated:
+        if user_authenticated:
             return redirect('submit_design')
         else:
             return redirect('signup')
 
-    return render(request, 'create.html')
-
+    return render(request, 'create.html', {'user_authenticated': user_authenticated})
 
 def my_closet(request):
     return render(request, 'my_closet.html')
@@ -124,4 +120,3 @@ def upvote_design(request, design_id):
         return JsonResponse({'votes': design.votes, 'upvoted': upvoted})
 
     return JsonResponse({'error': 'POST request required'})
-
