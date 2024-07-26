@@ -105,7 +105,14 @@
         }
 
         function submitDesign() {
-            window.location.href = '{% url 'submit_design' %}';
+            // Check authentication status
+            const isAuthenticated = "{{ user_authenticated|lower }}";  // Ensure it's a string for comparison
+
+            if (isAuthenticated === 'true') {
+                window.location.href = '{% url 'submit_design' %}';
+            } else {
+                window.location.href = '{% url 'signup' %}';
+            }
         }
     </script>
 </body>
