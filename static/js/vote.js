@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const upvoteBtns = document.querySelectorAll('.upvote-btn');
+    const addToClosetBtns = document.querySelectorAll('.closet-btn');
 
     upvoteBtns.forEach(upvoteBtn => {
         upvoteBtn.addEventListener('click', function () {
@@ -30,6 +31,37 @@ document.addEventListener('DOMContentLoaded', function () {
                     heartIcon.classList.toggle('fa-solid', !isUpvoted);
                     heartIcon.classList.toggle('fa-regular', isUpvoted);
                     upvoteBtn.setAttribute('data-upvoted', !isUpvoted);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+
+    addToClosetBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const designId = btn.closest('.design-box').id.split('-')[1];
+
+            fetch(`/design/${designId}/add-to-closet/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const message = btn.nextElementSibling;
+                    if (message) {
+                        message.style.display = 'block'; // Show "Added to Closet!" message
+                        setTimeout(() => {
+                            message.style.display = 'none'; // Hide after 2 seconds
+                        }, 2000);
+                    }
+                } else {
+                    alert('Failed to add design to closet.');
                 }
             })
             .catch(error => {

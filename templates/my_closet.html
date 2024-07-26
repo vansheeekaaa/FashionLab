@@ -56,93 +56,33 @@
                 <i class="fa-regular fa-user"></i>
             </div>
             <div class="closet-leaderboard">
-                <div class="design-box" id="design-1">
+                {% for design in designs %}
+                <div class="design-box" id="design-{{ design.id }}">
                     <div class="design-item">
                         <div class="design-image">
-                            <img src="{% static 'Images/fashion1.png' %}" alt="Design Image">
+                            <img src="{{ design.design_link }}" alt="Design Image">
                         </div>
                         <div class="design-content">
-                            <p class="design-text">The light blue hoodie with floral and skull graphics, paired with
-                                black cargo pants and blue sneakers, embodies a relaxed yet stylish urban look.</p>
-                            <button onclick="removeDesign('design-1')" class="remove-btn">REMOVE</button>
+                            <p class="design-text">{{ design.name }}</p> <!-- Adjust to existing fields -->
+                            <button onclick="removeDesign('{{ design.id }}')" class="remove-btn">REMOVE</button>
                         </div>
                     </div>
                 </div>
-                <div class="design-box" id="design-2">
-                    <div class="design-item">
-                        <div class="design-image">
-                            <img src="{% static 'Images/fashion2.png' %}" alt="Design Image">
-                        </div>
-                        <div class="design-content">
-                            <p class="design-text">The blue denim jacket, black pleated skirt, and black boots with blue
-                                laces are indicative of a modern, edgy street style.</p>
-                            <button onclick="removeDesign('design-2')" class="remove-btn">REMOVE</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="design-box" id="design-3">
-                    <div class="design-item">
-                        <div class="design-image">
-                            <img src="{% static 'Images/fashion3.png' %}" alt="Design Image">
-                        </div>
-                            <p class="design-text">The color-blocked jacket with yellow, blue, and red sections, paired
-                                with brown cargo pants and blue sneakers, evokes a vintage yet modern look.</p>
-                            <button onclick="removeDesign('design-3')" class="remove-btn">REMOVE</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="design-box" id="design-4">
-                    <div class="design-item">
-                        <div class="design-image">
-                            <img src="{% static 'Images/fashion4.png' %}" alt="Design Image">
-                        </div>
-                        <div class="design-content">
-                            <p class="design-text">The puffy jacket, distressed jeans, and sneakers are characteristic
-                                of contemporary street style, often seen in urban environments.</p>
-                            <button onclick="removeDesign('design-4')" class="remove-btn">REMOVE</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="design-box" id="design-5">
-                    <div class="design-item">
-                        <div class="design-image">
-                            <img src="{% static 'Images/fashion5.png' %}" alt="Design Image">
-                        </div>
-                        <div class="design-content">
-                            <p class="design-text">The hooded sweatshirt with a nature-themed print, featuring trees and
-                                foliage in autumnal colors, paired with dark green pants and white sneakers with blue
-                                accents, suggests a relaxed, outdoor-oriented style.</p>
-                            <button onclick="removeDesign('design-5')" class="remove-btn">REMOVE</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="design-box" id="design-6">
-                    <div class="design-item">
-                        <div class="design-image">
-                            <img src="{% static 'Images/fashion6.png' %}" alt="Design Image">
-                        </div>
-                        <div class="design-content">
-                            <p class="design-text">Dress yourself up in blue jeans, a red and grey jacket with
-                                blue stripes on the sleeves, and white sneakers, which are typical of casual, everyday
-                                wear in video games.</p>
-                            <button onclick="removeDesign('design-6')" class="remove-btn">REMOVE</button>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 
     <script>
         function removeDesign(designId) {
-            var designBox = document.getElementById(designId);
+            const designBox = document.getElementById(`design-${designId}`);
             if (designBox) {
                 designBox.remove(); 
+                // Add AJAX request here if you want to remove from the backend as well
             }
         }
     </script>
     
-    <script src="{% static 'js/closet.js' %}"></script>
 </body>
 
 </html>
