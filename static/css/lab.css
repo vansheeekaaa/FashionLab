@@ -38,6 +38,7 @@ body {
     font-size: 12px;
     font-weight: bold;
 }
+
 .navbar-search {
     display: flex;
     align-items: center;
@@ -71,8 +72,8 @@ body {
     background-color: #fff;
     cursor: pointer;
     width: 37px;
-    height: 100%; 
-    box-sizing: border-box; 
+    height: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -99,7 +100,6 @@ body {
     color: #ff4081;
 }
 
-
 .mobile-screen {
     background-color: #fafafa;
     border-radius: 10px;
@@ -109,8 +109,77 @@ body {
     margin-left: auto;
     margin-right: auto;
     height: 602px;
+    overflow: hidden;
 }
 
+.theme-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 12px;
+    padding-bottom: 0px;
+    position: relative;
+}
+
+.theme-box img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    transform: scaleX(-1) translateX(3px);
+}
+
+.scrolling-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 30px;
+    overflow: hidden;
+}
+
+.screen-content::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    /* height: auto; */
+    /* Maintain aspect ratio */
+    border-radius: 8px;
+    max-height: 100%;
+    /* Prevents images from exceeding their container’s height */
+    object-fit: cover;
+    /* Ensures images are covered within their container */
+    border-radius: 8px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+}
+
+
+.tabs button.active {
+    border-bottom: 2px solid red;
+    color: red;
+}
 
 .head-space {
     background-color: #fff;
@@ -133,17 +202,23 @@ body {
     margin-right: 10px;
 }
 
+/* Adjust screen-content to fit within mobile-screen */
 .screen-content {
     padding: 20px;
+    height: 100%;
+    /* Full height of the mobile-screen */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
 }
 
 .theme-box {
-    position: relative;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin-top: 12px;
+    padding-bottom: 0px;
+    /* Ensure enough space for scrolling */
 }
 
 .theme-overlay {
@@ -179,11 +254,14 @@ body {
     text-shadow: 2px 6px 2px rgb(0 0 0);
 }
 
+
 .theme-box img {
     width: 100%;
     display: block;
     border-radius: 10px;
+    transform: scaleX(-1) translateX(3px);
 }
+
 
 .leaderboard {
     margin-top: 6px;
@@ -240,6 +318,7 @@ body {
     position: relative;
 }
 
+/* 
 .button-container {
     position: absolute;
     bottom: 10px;
@@ -271,6 +350,42 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+} 
+
+.participate-btn:hover,
+.see-designs-btn:hover,
+.vote-btn:hover {
+    background-color: #dc1b5d;
+}
+*/
+
+.button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+}
+
+.participate-btn {
+    background-color: #ff3e6c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: absolute; /* Fixes the button to a specific position */
+    top: 303px;
+    right: 100px;
+    z-index: 1; /* Ensure it stays on top of other content */
+}
+
+
+.participate-btn:hover {
+    background-color: #dc1b5d;
 }
 
 .see-designs-btn {
@@ -296,11 +411,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.participate-btn:hover,
-.see-designs-btn:hover,
-.vote-btn:hover {
-    background-color: #dc1b5d;
-}
 
 .theme-box img {
     width: 114%;
@@ -408,4 +518,77 @@ p {
 p a {
     color: #ff3e6c;
     text-decoration: none;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.post img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-details h3 {
+    margin: 0;
+}
+
+.post-details p {
+    margin: 5px 0;
+}
+
+.post-details button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.scrolling-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Spacing between images */
+    padding: 10px;
+    /* Remove specific height; let it be determined by content */
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    /* Prevents items from shrinking or growing */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+
+.buy-now-btn {
+    display: block;
+    background-color: #ff3e6c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    /* Make button full width */
+}
+
+.buy-now-btn:hover {
+    background-color: #dc1b5d;
 }

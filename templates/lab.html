@@ -60,10 +60,34 @@
                 </div>
                 <div class="button-container">
                     <a href="{% url 'create' %}" class="participate-btn">Participate</a>
+                </div>                
+                <!-- <div class="button-container">
+                    <a href="{% url 'create' %}" class="participate-btn">Participate</a>
                     <a href="{% url 'vote_view' %}" class="vote-btn">Vote</a>
-                </div>
+                </div> -->
             </div>
-            <div class="leaderboard">
+            <div class="tabs">
+                <button class="active">Current Trends</button>
+                <button>Previous Trends</button>
+            </div>
+            <div class="scrolling-gallery">
+                <div class="gallery-item">
+                    <img src="{% static 'Images/fashion1.png' %}" alt="Reel 1">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="{% static 'Images/fashion1.png' %}" alt="Reel 2">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="{% static 'Images/fashion1.png' %}" alt="Reel 3">
+                    <a href="#" class="buy-now-btn">Buy Now</a>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
+            
+            
+            <!-- <div class="leaderboard">
                 <h3>Topping the Charts!</h3>
                 <ul>
                     <li><span class="name">1. RYAN</span> <span class="points">1000 points</span></li>
@@ -71,7 +95,8 @@
                     <li><span class="name">3. ALICE</span> <span class="points">600 points</span></li>
                 </ul>
                 <a href="{% url 'win' %}" class="see-designs-btn">Previous Trendsetters</a>
-            </div>
+            </div> -->
+
         </div>
     </div>
 
