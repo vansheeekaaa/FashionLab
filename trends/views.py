@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .forms import DesignForm
-from .models import DesignSubmission, Upvote  # Ensure Upvote model is imported
+from .models import DesignSubmission, Upvote, ClosetItem# Ensure Upvote model is imported
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
 
@@ -89,7 +89,10 @@ def create(request):
     return render(request, 'create.html', {'user_authenticated': user_authenticated})
 
 def my_closet(request):
-    return render(request, 'my_closet.html')
+    saved_items = ClosetItem.objects.filter(user=request.user)
+    saved_designs = [item.design for item in saved_items]
+    
+    return render(request, 'my_closet.html', {'designs': saved_designs})
 
 def success(request):
     return render(request, 'success.html')
@@ -124,3 +127,14 @@ def upvote_design(request, design_id):
 
     return JsonResponse({'error': 'POST request required'}, status=405)
 
+def add_to_closet(request, design_id):
+    if request.method == 'POST':
+        try:
+            design = DesignSubmission.objects.get(id=design_id)
+            if design:
+                ClosetItem.objects.get_or_create(user=request.user, design=design)
+                return JsonResponse({'success': True})
+        except DesignSubmission.DoesNotExist:
+            return JsonResponse({'success': False})
+
+    return JsonResponse({'success': False})

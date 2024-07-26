@@ -21,5 +21,8 @@ class Upvote(models.Model):
         unique_together = ('user', 'design')
 
 class ClosetItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='saved_designs')
     design = models.ForeignKey(DesignSubmission, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Closet Item {self.id} for User {self.user.username}"

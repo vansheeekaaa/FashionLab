@@ -13,7 +13,6 @@ urlpatterns = [
     path('design/<int:design_id>/upvote/', views.upvote_design, name='upvote_design'),
     path('signup/', views.signup, name='signup'),
     path('profile/', views.profile, name='profile'),
-    path('logout/', views.user_logout, name='logout'), 
-    path('login/', views.user_login, name='login'),  # Add this line
-]
-
+    path('logout/', views.user_logout, name='logout'),
+    path('login/', views.user_login, name='login'),
+    path('design/<int:design_id>/add-to-closet/', views.add_to_closet, name='add_to_closet'),]
