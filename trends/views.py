@@ -22,7 +22,7 @@ def user_login(request):
 
         user = authenticate(request, username=user.username, password=password)
         if user is not None:
-            auth_login(request, user)
+            auth_login(request, user) 
             return redirect('lab')
         else:
             return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
