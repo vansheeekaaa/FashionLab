@@ -13,10 +13,11 @@ class DesignForm(forms.ModelForm):
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     confirm_password = forms.CharField(widget=forms.PasswordInput)
+    name = forms.CharField(max_length=100, required=True)  # Add this line
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'email', 'name', 'password']
 
     def clean(self):
         cleaned_data = super().clean()
