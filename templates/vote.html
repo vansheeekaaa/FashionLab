@@ -75,11 +75,11 @@
                         <button class="upvote-btn" data-design-id="{{ design.id }}" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}">
                             <i class="fa-regular fa-heart" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}"></i> 
                             <span id="votes-{{ design.id }}">{{ design.votes }}</span>
-                        </button>                        
+                        </button>
                         <button class="closet-btn">
                             <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
                         </button>
-                        <div class="closet-message" style="display:none;">Added to Closet!</div>                        
+                        <div class="closet-message" style="display:none;">Added to Closet!</div>
                     </div>
                 </div>
                 {% endfor %}
@@ -91,3 +91,4 @@
 </body>
 
 </html>
+

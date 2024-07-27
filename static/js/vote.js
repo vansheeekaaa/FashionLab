@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'X-CSRFToken': getCookie('csrftoken'),
                     'Content-Type': 'application/json'
                 },
+                body: JSON.stringify({ design_id: designId, action: isUpvoted ? 'unvote' : 'upvote' })
             })
             .then(response => {
                 if (response.status === 401) {
@@ -55,13 +56,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.success) {
                     const message = btn.nextElementSibling;
                     if (message) {
-                        message.style.display = 'block'; // Show "Added to Closet!" message
+                        message.style.display = 'block';
                         setTimeout(() => {
-                            message.style.display = 'none'; // Hide after 2 seconds
+                            message.style.display = 'none';
                         }, 2000);
                     }
                 } else {
-                    alert('Failed to add design to closet.');
+                    alert('Failed to add to closet');
                 }
             })
             .catch(error => {
