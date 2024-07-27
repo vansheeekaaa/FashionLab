@@ -36,7 +36,6 @@ body {
     color: #ff4081;
 }
 
-
 .navbar-links a#lab::after {
     content: '';
     position: absolute;

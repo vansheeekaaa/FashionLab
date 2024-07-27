@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,7 +94,7 @@
                         <p class="design-text">Designed by {{ design.name }}</p>
                         <div class="design-actions">
                             <button class="upvote-btn" data-design-id="{{ design.id }}" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}">
-                                <i class="fa-regular fa-heart" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}"></i> 
+                                <i class="fa-{% if design.id in user_upvoted_designs %}solid{% else %}regular{% endif %} fa-heart"></i> 
                                 <span id="votes-{{ design.id }}">{{ design.votes }}</span>
                             </button>                        
                             <button class="closet-btn">
@@ -171,8 +170,9 @@
             };
         });
     </script>
-        <script src="{% static 'js/vote.js' %}"></script>
 
+    <script src="https://kit.fontawesome.com/4fbf688a29.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/vote.js' %}"></script>
 </body>
 
 </html>
