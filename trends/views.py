@@ -58,19 +58,20 @@ def submit_design(request):
         password = request.POST.get('password')
         design_link = request.POST.get('design_link')
 
-        # Create a DesignSubmission instance with the current user
         design_submission = DesignSubmission(
             name=name,
             email=email,
-            password=password,
             design_link=design_link,
-            user=request.user  # Set the user field
+            user=request.user 
         )
         design_submission.save()
+        return redirect('success')  
 
-        return redirect('success')  # Redirect to a success page or another view
-
-    return render(request, 'submit_design.html')
+    context = {
+        'user_name': request.user.get_full_name() if request.user.get_full_name() else request.user.username,
+        'user_email': request.user.email
+    }
+    return render(request, 'submit_design.html', context)
 
 def index(request):
     return render(request, 'index.html')

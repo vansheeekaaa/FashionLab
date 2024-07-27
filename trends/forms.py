@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class DesignForm(forms.ModelForm):
     class Meta:
         model = DesignSubmission
-        fields = ['name', 'email', 'password', 'design_link']
+        fields = ['name', 'email', 'design_link']
         widgets = {
             'password': forms.PasswordInput(),
         }
