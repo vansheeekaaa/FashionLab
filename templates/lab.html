@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -10,6 +12,14 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vote.css' %}">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
     <title>LAB</title>
 </head>
 
@@ -77,7 +87,26 @@
                 <button>Previous Trends</button>
             </div>
             <div class="scrolling-gallery">
-                <div class="gallery-item">
+
+                <div class="closet-leaderboard">
+                    {% for design in designs %}
+                    <div class="design-box" id="design-{{ design.id }}">
+                        <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate camera-controls></model-viewer>
+                        <p class="design-text">Designed by {{ design.name }}</p>
+                        <div class="design-actions">
+                            <button class="upvote-btn" data-design-id="{{ design.id }}" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}">
+                                <i class="fa-regular fa-heart" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}"></i> 
+                                <span id="votes-{{ design.id }}">{{ design.votes }}</span>
+                            </button>                        
+                            <button class="closet-btn">
+                                <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
+                            </button>
+                            <div class="closet-message" style="display:none;">Added to Closet!</div>                        
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                <!-- <div class="gallery-item">
                     <img src="{% static 'Images/fashion1.png' %}" alt="Reel 1">
                     <a href="#" class="buy-now-btn">Buy Now</a>
                 </div>
@@ -88,7 +117,7 @@
                 <div class="gallery-item">
                     <img src="{% static 'Images/fashion1.png' %}" alt="Reel 3">
                     <a href="#" class="buy-now-btn">Buy Now</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -142,6 +171,8 @@
             };
         });
     </script>
+        <script src="{% static 'js/vote.js' %}"></script>
+
 </body>
 
 </html>
