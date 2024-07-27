@@ -132,12 +132,16 @@ def add_to_closet(request, design_id):
         try:
             design = DesignSubmission.objects.get(id=design_id)
             if design:
-                ClosetItem.objects.get_or_create(user=request.user, design=design)
-                return JsonResponse({'success': True})
+                if not ClosetItem.objects.filter(user=request.user, design=design).exists():
+                    ClosetItem.objects.create(user=request.user, design=design)
+                    return JsonResponse({'success': True})
+                else:
+                    return JsonResponse({'success': False, 'message': 'Design already in closet'})
         except DesignSubmission.DoesNotExist:
-            return JsonResponse({'success': False})
+            return JsonResponse({'success': False, 'message': 'Design does not exist'})
 
-    return JsonResponse({'success': False})
+    return JsonResponse({'success': False, 'message': 'Invalid request'})
+
 
 def lab(request):
     designs = DesignSubmission.objects.all()
