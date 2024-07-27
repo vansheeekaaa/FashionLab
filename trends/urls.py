@@ -15,4 +15,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('logout/', views.user_logout, name='logout'),
     path('login/', views.user_login, name='login'),
-    path('design/<int:design_id>/add-to-closet/', views.add_to_closet, name='add_to_closet'),]
+    path('design/<int:design_id>/add-to-closet/', views.add_to_closet, name='add_to_closet'),
+    path('remove-from-closet/<int:design_id>/', views.remove_from_closet, name='remove_from_closet'),
+    ]

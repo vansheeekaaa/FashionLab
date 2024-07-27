@@ -89,10 +89,10 @@ def create(request):
     return render(request, 'create.html', {'user_authenticated': user_authenticated})
 
 def my_closet(request):
-    saved_items = ClosetItem.objects.filter(user=request.user)
-    saved_designs = [item.design for item in saved_items]
-    
-    return render(request, 'my_closet.html', {'designs': saved_designs})
+    user = request.user
+    closet_items = ClosetItem.objects.filter(user=user)
+    designs = [item.design for item in closet_items]
+    return render(request, 'my_closet.html', {'designs': designs})
 
 def success(request):
     return render(request, 'success.html')
@@ -132,12 +132,16 @@ def add_to_closet(request, design_id):
         try:
             design = DesignSubmission.objects.get(id=design_id)
             if design:
-                ClosetItem.objects.get_or_create(user=request.user, design=design)
-                return JsonResponse({'success': True})
+                if not ClosetItem.objects.filter(user=request.user, design=design).exists():
+                    ClosetItem.objects.create(user=request.user, design=design)
+                    return JsonResponse({'success': True})
+                else:
+                    return JsonResponse({'success': False, 'message': 'Design already in closet'})
         except DesignSubmission.DoesNotExist:
-            return JsonResponse({'success': False})
+            return JsonResponse({'success': False, 'message': 'Design does not exist'})
 
-    return JsonResponse({'success': False})
+    return JsonResponse({'success': False, 'message': 'Invalid request'})
+
 
 def lab(request):
     designs = DesignSubmission.objects.all()
@@ -151,3 +155,15 @@ def lab(request):
         'user_upvoted_designs': user_upvoted_designs,
         'user_authenticated': request.user.is_authenticated
     })
+
+def remove_from_closet(request, design_id):
+    if request.method == 'POST':
+        try:
+            design = get_object_or_404(DesignSubmission, id=design_id)
+            closet_item = ClosetItem.objects.filter(user=request.user, design=design)
+            if closet_item.exists():
+                closet_item.delete()
+                return JsonResponse({'success': True})
+        except DesignSubmission.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Design does not exist'})
+    return JsonResponse({'success': False, 'message': 'Invalid request'})
