@@ -30,6 +30,7 @@ def user_login(request):
 
 def signup(request):
     if request.method == 'POST':
+        name = request.POST.get('name')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
@@ -38,10 +39,13 @@ def signup(request):
             return render(request, 'signup.html', {'error': error})
 
         user = User.objects.create_user(username=email, email=email, password=password)
+        user.first_name = name  # Save the name in the user's first_name field
+        user.save()
         auth_login(request, user)
         return redirect('create')  # Redirect to create page after signup
 
     return render(request, 'signup.html')
+
 
 def user_logout(request):
     logout(request)
