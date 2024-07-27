@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/my_closet.css' %}">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <title>My Closet</title>
 </head>
 
@@ -68,14 +69,12 @@
             <div class="closet-leaderboard">
                 {% for design in designs %}
                 <div class="design-box" id="design-{{ design.id }}">
-                    <div class="design-item">
-                        <div class="design-image">
-                            <img src="{{ design.design_link }}" alt="Design Image">
-                        </div>
-                        <div class="design-content">
-                            <p class="design-text">{{ design.name }}</p> <!-- Adjust to existing fields -->
-                            <button onclick="removeDesign('{{ design.id }}')" class="remove-btn">REMOVE</button>
-                        </div>
+                    <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate camera-controls></model-viewer>
+                    <p class="design-text">Designed by {{ design.name }}</p>
+                    <div class="design-actions">
+                        <button onclick="removeDesign('{{ design.id }}')" class="remove-btn">
+                            <i class="fa-solid fa-trash"></i> REMOVE
+                        </button>
                     </div>
                 </div>
                 {% endfor %}
@@ -123,7 +122,8 @@
             return cookieValue;
         }
     </script>
-    
+
 </body>
 
 </html>
+
