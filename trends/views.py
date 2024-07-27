@@ -138,3 +138,16 @@ def add_to_closet(request, design_id):
             return JsonResponse({'success': False})
 
     return JsonResponse({'success': False})
+
+def lab(request):
+    designs = DesignSubmission.objects.all()
+    user_upvoted_designs = []
+
+    if request.user.is_authenticated:
+        user_upvoted_designs = Upvote.objects.filter(user=request.user).values_list('design_id', flat=True)
+
+    return render(request, 'lab.html', {
+        'designs': designs,
+        'user_upvoted_designs': user_upvoted_designs,
+        'user_authenticated': request.user.is_authenticated
+    })
