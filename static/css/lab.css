@@ -262,102 +262,9 @@ body {
     transform: scaleX(-1) translateX(3px);
 }
 
-
-.leaderboard {
-    margin-top: 6px;
-    box-shadow: 0 2px 4px rgba(39, 39, 39, 0.966);
-    padding: 12px;
-    background-color: #fff;
-    border-radius: 10px;
-    max-height: 129px;
-    overflow-y: auto;
-}
-
-.leaderboard h3 {
-    font-size: 14px;
-    color: #555;
-    margin-top: -7px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.leaderboard ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.leaderboard ul li {
-    font-size: 14px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 20px;
-    padding: 10px 18px;
-    background-color: #ffc8c8;
-    border: 2px solid #d5d1e9;
-    color: #141414 !important;
-}
-
-.leaderboard ul li:last-child {
-    border-bottom: none;
-}
-
-.leaderboard ul li span {
-    font-size: 14px;
-}
-
-.leaderboard ul li strong {
-    font-weight: bold;
-    color: #ffbee9;
-    font-size: 16px;
-}
-
 .image-container {
     position: relative;
 }
-
-/* 
-.button-container {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.participate-btn,
-.see-designs-btn,
-.vote-btn {
-    background-color: #ff3e6c;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin: 0 10px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    max-width: 200px;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-
-.participate-btn:hover,
-.see-designs-btn:hover,
-.vote-btn:hover {
-    background-color: #dc1b5d;
-}
-*/
 
 .button-container {
     position: absolute;
@@ -591,4 +498,39 @@ p a {
 
 .buy-now-btn:hover {
     background-color: #dc1b5d;
+}
+
+
+
+.navbar-icons .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-icons .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navbar-icons .dropdown .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.navbar-icons .dropdown .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar-icons .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-icons .dropdown:hover .icon-item {
+    background-color: #ddd;
 }
