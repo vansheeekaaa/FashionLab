@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .forms import DesignForm
-from .models import DesignSubmission, Upvote, ClosetItem# Ensure Upvote model is imported
+from .models import DesignSubmission, Upvote, ClosetItem
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
+from .utils import process_glb_and_compare  # Import the function
 
 def profile(request):
     return render(request, 'profile.html')
@@ -68,9 +69,9 @@ def submit_design(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        password = request.POST.get('password')
         design_link = request.POST.get('design_link')
 
+        # Save initial design submission without the result image URL
         design_submission = DesignSubmission(
             name=name,
             email=email,
@@ -78,6 +79,15 @@ def submit_design(request):
             user=request.user 
         )
         design_submission.save()
+
+        # Process GLB file and find the best matching image
+        dataset_csv_path = 'data/myntra.csv'  # Update this path as needed
+        best_match_url = process_glb_and_compare(design_link, dataset_csv_path)
+
+        # Update design submission with the result image URL
+        design_submission.result_image_url = best_match_url
+        design_submission.save()
+
         return redirect('success')  
 
     context = {
@@ -90,8 +100,17 @@ def index(request):
     return render(request, 'index.html')
 
 def lab(request):
-    user_authenticated = request.user.is_authenticated
-    return render(request, 'lab.html', {'user_authenticated': user_authenticated})
+    designs = DesignSubmission.objects.all()
+    user_upvoted_designs = []
+
+    if request.user.is_authenticated:
+        user_upvoted_designs = Upvote.objects.filter(user=request.user).values_list('design_id', flat=True)
+
+    return render(request, 'lab.html', {
+        'designs': designs,
+        'user_upvoted_designs': user_upvoted_designs,
+        'user_authenticated': request.user.is_authenticated
+    })
 
 def win(request):
     return render(request, 'win.html')
@@ -159,20 +178,6 @@ def add_to_closet(request, design_id):
             return JsonResponse({'success': False, 'message': 'Design does not exist'})
 
     return JsonResponse({'success': False, 'message': 'Invalid request'})
-
-
-def lab(request):
-    designs = DesignSubmission.objects.all()
-    user_upvoted_designs = []
-
-    if request.user.is_authenticated:
-        user_upvoted_designs = Upvote.objects.filter(user=request.user).values_list('design_id', flat=True)
-
-    return render(request, 'lab.html', {
-        'designs': designs,
-        'user_upvoted_designs': user_upvoted_designs,
-        'user_authenticated': request.user.is_authenticated
-    })
 
 def remove_from_closet(request, design_id):
     if request.method == 'POST':
