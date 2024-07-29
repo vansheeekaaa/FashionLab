@@ -320,11 +320,16 @@ body {
 
 
 .theme-box img {
-    width: 114%;
+    /* width: 114%;
     height: 356px;
     display: block;
     border-radius: 10px;
-    transform: scaleX(-1) translateX(3px);
+    transform: scaleX(-1) translateX(3px); */
+
+    height: 356px;
+    display: block;
+    border-radius: 10px;
+    transform: scaleX(1) translateY(1px);
 }
 
 .modal {

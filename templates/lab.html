@@ -72,7 +72,7 @@
             </div>
             <div class="theme-box">
                 <div class="image-container">
-                    <img src="{% static 'Images/theme.png' %}" alt="Theme Image">
+                    <img src="{% static 'Images/newTheme.png' %}" alt="Theme Image">
                 </div>
                 <div class="button-container">
                     <a href="{% url 'create' %}" class="participate-btn">Participate</a>
@@ -115,7 +115,7 @@
                                 <p>Designed by Sia<p>
                                 <p>Combination of the light blue hoodie with floral and skull graphics, and black baggy pants - a youthful, casual, and slightly edgy style.</p>
                                 <button class="closet-btn">
-                                    <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
+                                    <i class="fa-solid fa-hanger"></i> ADD
                                 </button>
                             </div>
                         </div>
@@ -129,7 +129,9 @@
                                 <h3>Digital Fashion</h3>
                                 <p>Designed by Reena<p>
                                 <p>Combination of a blue denim jacket, black pleated skirt, and black combat boots gives off a punk-inspired vibe with a contemporary twist.</p>
-
+                                <button class="closet-btn">
+                                    <i class="fa-solid fa-hanger"></i> ADD
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -142,6 +144,9 @@
                                 <h3>Y2K Revival</h3>
                                 <p>Designed by Sheena<p>
                                 <p>The colorful jacket with blue, yellow, and red panels, paired with brown cargo pants and white sneakers, suggests a modern, casual style.</p>
+                                <button class="closet-btn">
+                                    <i class="fa-solid fa-hanger"></i> ADD
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -176,6 +181,28 @@
         </div>
 
         <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const modal = document.getElementById("loginModal");
+                const closeButton = document.getElementsByClassName("close")[0];
+                const loginLink = document.querySelector('.icon-item');
+
+                // Show the modal after a delay of 2000ms (2 seconds)
+                setTimeout(function () {
+                    modal.style.display = "block";
+                }, 2000);
+
+                closeButton.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            });
+
+
             document.addEventListener("DOMContentLoaded", function () {
                 var modal = document.getElementById("loginModal");
                 var span = document.getElementsByClassName("close")[0];
