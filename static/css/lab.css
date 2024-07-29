@@ -563,8 +563,20 @@ p a {
 .dropdown-content .text2{
     margin-left: 1px;
 }
-/* Display the dropdown menu when hovering over the dropdown container or dropdown content */
-.navbar-icons .dropdown:hover .dropdown-content,
-.navbar-icons .dropdown .dropdown-content:hover {
-    display: flex; /* Use flexbox for dropdown content */
+
+.result-image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.result-image-container h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.result-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
