@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,20 +42,18 @@
             <input type="text" placeholder="Search for products, brands and more">
         </div>
         <div class="navbar-icons">
-            {% if user.is_authenticated %}
             <div class="dropdown">
-                <a href="#" class="icon-item">
+                <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'signup' %}{% endif %}" class="icon-item">
                     <i class="fa-regular fa-user"></i>
-                    <span>Profile</span>
+                    <span>{% if user.is_authenticated %}Your Profile{% else %}Sign Up{% endif %}</span>
                 </a>
+                {% if user.is_authenticated %}
                 <div class="dropdown-content">
-                    <a href="{% url 'my_closet' %}">My Closet</a>
-                    <a href="{% url 'logout' %}">Logout</a>
+                    <a href="{% url 'my_closet' %}" class="text1">My Closet</a>
+                    <a href="{% url 'logout' %}" class="text2">Logout</a>
                 </div>
+                {% endif %}
             </div>
-            {% else %}
-            <a href="{% url 'signup' %}" class="icon-item">Sign Up</a>
-            {% endif %}
             <a href="#" class="icon-item">
                 <i class="fa-regular fa-heart"></i>
                 <span>Wishlist</span>
@@ -64,6 +63,9 @@
                 <span>Bag</span>
             </a>
         </div>
+        
+
+
     </nav>
 
     <div class="mobile-screen">
@@ -90,76 +92,79 @@
                 <div class="closet-leaderboard">
                     {% for design in designs %}
                     <div class="design-box" id="design-{{ design.id }}">
-                        <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate camera-controls></model-viewer>
+                        <model-viewer src="{{ design.design_link }}" alt="A 3D model of a design" auto-rotate
+                            camera-controls></model-viewer>
                         <p class="design-text">Designed by {{ design.name }}</p>
                         <div class="design-actions">
-                            <button class="upvote-btn" data-design-id="{{ design.id }}" data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}">
-                                <i class="fa-{% if design.id in user_upvoted_designs %}solid{% else %}regular{% endif %} fa-heart"></i> 
+                            <button class="upvote-btn" data-design-id="{{ design.id }}"
+                                data-upvoted="{% if design.id in user_upvoted_designs %}true{% else %}false{% endif %}">
+                                <i
+                                    class="fa-{% if design.id in user_upvoted_designs %}solid{% else %}regular{% endif %} fa-heart"></i>
                                 <span id="votes-{{ design.id }}">{{ design.votes }}</span>
-                            </button>                        
+                            </button>
                             <button class="closet-btn">
                                 <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
                             </button>
-                            <div class="closet-message" style="display:none;">Added to Closet!</div>                        
+                            <div class="closet-message" style="display:none;">Added to Closet!</div>
                         </div>
                     </div>
                     {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Login</h2>
-            <div class="error-message">
-                {% if error %}
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login</h2>
+                <div class="error-message">
+                    {% if error %}
                     <p style="color: red;">{{ error }}</p>
-                {% endif %}
+                    {% endif %}
+                </div>
+                <!-- Login Form -->
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <p>By continuing, I agree to the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></p>
+                    <button type="submit" class="continue-btn">Continue</button>
+                </form>
+                <!-- Signup Link -->
+                <p>Don't have an account? <a href="{% url 'signup' %}?next=lab" class="icon-item">Sign Up</a>
+                <p><a href="#">Have trouble logging in? Get help</a></p>
             </div>
-            <!-- Login Form -->
-            <form method="POST" action="{% url 'login' %}">
-                {% csrf_token %}
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <p>By continuing, I agree to the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></p>
-                <button type="submit" class="continue-btn">Continue</button>
-            </form>
-            <!-- Signup Link -->
-            <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
-            <p><a href="#">Have trouble logging in? Get help</a></p>
         </div>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var modal = document.getElementById("loginModal");
-            var span = document.getElementsByClassName("close")[0];
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var modal = document.getElementById("loginModal");
+                var span = document.getElementsByClassName("close")[0];
 
-            // Show the modal only if the user is not authenticated
-            {% if not user.is_authenticated %}
+                // Show the modal only if the user is not authenticated
+                {% if not user.is_authenticated %}
                 setTimeout(function () {
                     modal.style.display = "block";
                 }, 2000);
-            {% endif %}
+                {% endif %}
 
-            span.onclick = function () {
-                modal.style.display = "none";
-            };
-
-            window.onclick = function (event) {
-                if (event.target == modal) {
+                span.onclick = function () {
                     modal.style.display = "none";
-                }
-            };
-        });
-    </script>
+                };
 
-    <script src="https://kit.fontawesome.com/4fbf688a29.js" crossorigin="anonymous"></script>
-    <script src="{% static 'js/vote.js' %}"></script>
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
+            });
+        </script>
+
+        <script src="https://kit.fontawesome.com/4fbf688a29.js" crossorigin="anonymous"></script>
+        <script src="{% static 'js/vote.js' %}"></script>
 </body>
 
 </html>

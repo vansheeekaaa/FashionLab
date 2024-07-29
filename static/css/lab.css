@@ -500,13 +500,13 @@ p a {
     background-color: #dc1b5d;
 }
 
-
-
+/* Ensure the dropdown container is positioned correctly */
 .navbar-icons .dropdown {
     position: relative;
     display: inline-block;
 }
 
+/* Style for the dropdown menu */
 .navbar-icons .dropdown .dropdown-content {
     display: none;
     position: absolute;
@@ -514,23 +514,57 @@ p a {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    top: 56px;
+    left: -15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space items evenly */
+    height: 100px; /* Adjust height as needed */
+    padding: 5px 0; /* Add some padding to top and bottom */
+    height: 80px;
 }
 
-.navbar-icons .dropdown .dropdown-content a {
+/* Style for dropdown items */
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-bottom: 1px solid #ddd; /* Add a separator between items */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding in the element’s total width and height */
 }
 
-.navbar-icons .dropdown .dropdown-content a:hover {
+/* Remove the border from the last item */
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Highlight the background color of the dropdown items on hover */
+.dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
+/* Display the dropdown menu on hover */
 .navbar-icons .dropdown:hover .dropdown-content {
-    display: block;
+    display: flex; /* Use flexbox for dropdown content */
 }
 
+/* Optional: Add background color to the icon on hover if needed */
 .navbar-icons .dropdown:hover .icon-item {
-    background-color: #ddd;
+    background-color: transparent; /* Ensure no background color on hover */
+}
+
+.dropdown-content .text1{
+    margin-left: 1px;
+}
+
+.dropdown-content .text2{
+    margin-left: 1px;
+}
+/* Display the dropdown menu when hovering over the dropdown container or dropdown content */
+.navbar-icons .dropdown:hover .dropdown-content,
+.navbar-icons .dropdown .dropdown-content:hover {
+    display: flex; /* Use flexbox for dropdown content */
 }

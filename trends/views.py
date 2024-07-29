@@ -22,13 +22,23 @@ def user_login(request):
         user = authenticate(request, username=user.username, password=password)
         if user is not None:
             auth_login(request, user)
-            return redirect('create')  # Redirect to create page after login
+            
+            # Determine where to redirect based on the referrer
+            referrer = request.META.get('HTTP_REFERER', '')
+            if 'create' in referrer:
+                return redirect('create')
+            else:
+                return redirect('lab')
         else:
             return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
 
     return render(request, 'lab.html', {'show_login': True})
 
+from django.urls import reverse
+
 def signup(request):
+    next_page = request.GET.get('next', 'lab')  # Default to 'lab' if no 'next' parameter is provided
+    
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -42,10 +52,13 @@ def signup(request):
         user.first_name = name  # Save the name in the user's first_name field
         user.save()
         auth_login(request, user)
-        return redirect('create')  # Redirect to create page after signup
+
+        if next_page == 'create':
+            return redirect('create')
+        else:
+            return redirect('lab')
 
     return render(request, 'signup.html')
-
 
 def user_logout(request):
     logout(request)

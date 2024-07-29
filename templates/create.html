@@ -36,7 +36,7 @@
             <div class="dropdown">
                 <a href="#" class="icon-item">
                     <i class="fa-regular fa-user"></i>
-                    <span>Profile</span>
+                    <span>My Profile</span>
                 </a>
                 <div class="dropdown-content">
                     <a href="{% url 'my_closet' %}">My Closet</a>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             {% else %}
-            <a href="{% url 'signup' %}" class="icon-item">Sign Up</a>
+            <a href="{% url 'signup' %}?next=create" class="icon-item">Sign Up</a>
             {% endif %}
             <a href="#" class="icon-item">
                 <i class="fa-regular fa-heart"></i>
