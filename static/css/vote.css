@@ -80,8 +80,9 @@ body {
 
 .mobile-screen {
     background-color: #fafafa;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin: 20px auto;
+    /* max-width: 400px; */
     max-width: 400px;
     height: 602px;
     /* overflow-y: auto;  */
@@ -107,7 +108,7 @@ body {
 .screen-content {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 

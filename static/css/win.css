@@ -97,8 +97,9 @@
 }
 
 .mobile-screen {
-    overflow-y: auto;
+    /* overflow-y: auto; */
     max-height: 600px;
+    max-width: 400px;
 }
 
 
