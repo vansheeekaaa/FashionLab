@@ -5,65 +5,7 @@ from .forms import DesignForm
 from .models import DesignSubmission, Upvote, ClosetItem
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
-from .utils import process_glb_and_compare  # Import the function
-
-def profile(request):
-    return render(request, 'profile.html')
-
-def user_login(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
-
-        user = authenticate(request, username=user.username, password=password)
-        if user is not None:
-            auth_login(request, user)
-            
-            # Determine where to redirect based on the referrer
-            referrer = request.META.get('HTTP_REFERER', '')
-            if 'create' in referrer:
-                return redirect('create')
-            else:
-                return redirect('lab')
-        else:
-            return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
-
-    return render(request, 'lab.html', {'show_login': True})
-
-from django.urls import reverse
-
-def signup(request):
-    next_page = request.GET.get('next', 'lab')  # Default to 'lab' if no 'next' parameter is provided
-    
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        if User.objects.filter(email=email).exists():
-            error = 'Email is already registered'
-            return render(request, 'signup.html', {'error': error})
-
-        user = User.objects.create_user(username=email, email=email, password=password)
-        user.first_name = name  # Save the name in the user's first_name field
-        user.save()
-        auth_login(request, user)
-
-        if next_page == 'create':
-            return redirect('create')
-        else:
-            return redirect('lab')
-
-    return render(request, 'signup.html')
-
-def user_logout(request):
-    logout(request)
-    return redirect('lab')
+from .utils import process_glb_and_compare  
 
 def submit_design(request):
     if request.method == 'POST':
@@ -96,10 +38,56 @@ def submit_design(request):
     }
     return render(request, 'submit_design.html', context)
 
+def profile(request):
+    return render(request, 'profile.html')
+
+def user_login(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
+
+        user = authenticate(request, username=user.username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect('create')  # Redirect to create page after login
+        else:
+            return render(request, 'lab.html', {'error': 'Invalid email or password', 'show_login': True})
+
+    return render(request, 'lab.html', {'show_login': True})
+
+def signup(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if User.objects.filter(email=email).exists():
+            error = 'Email is already registered'
+            return render(request, 'signup.html', {'error': error})
+
+        user = User.objects.create_user(username=email, email=email, password=password)
+        user.first_name = name  # Save the name in the user's first_name field
+        user.save()
+        auth_login(request, user)
+        return redirect('create')  # Redirect to create page after signup
+
+    return render(request, 'signup.html')
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('lab')
+
 def index(request):
     return render(request, 'index.html')
 
 def lab(request):
+    user_authenticated = request.user.is_authenticated
     designs = DesignSubmission.objects.all()
     user_upvoted_designs = []
 
@@ -125,6 +113,7 @@ def create(request):
 
     return render(request, 'create.html', {'user_authenticated': user_authenticated})
 
+@login_required
 def my_closet(request):
     user = request.user
     closet_items = ClosetItem.objects.filter(user=user)
@@ -140,9 +129,6 @@ def vote_view(request):
 
 def upvote_design(request, design_id):
     if request.method == 'POST':
-        if not request.user.is_authenticated:
-            return JsonResponse({'error': 'Unauthorized'}, status=401)
-
         design = get_object_or_404(DesignSubmission, pk=design_id)
         user = request.user
 
@@ -167,13 +153,12 @@ def upvote_design(request, design_id):
 def add_to_closet(request, design_id):
     if request.method == 'POST':
         try:
-            design = DesignSubmission.objects.get(id=design_id)
-            if design:
-                if not ClosetItem.objects.filter(user=request.user, design=design).exists():
-                    ClosetItem.objects.create(user=request.user, design=design)
-                    return JsonResponse({'success': True})
-                else:
-                    return JsonResponse({'success': False, 'message': 'Design already in closet'})
+            design = get_object_or_404(DesignSubmission, id=design_id)
+            if not ClosetItem.objects.filter(user=request.user, design=design).exists():
+                ClosetItem.objects.create(user=request.user, design=design)
+                return JsonResponse({'success': True})
+            else:
+                return JsonResponse({'success': False, 'message': 'Design already in closet'})
         except DesignSubmission.DoesNotExist:
             return JsonResponse({'success': False, 'message': 'Design does not exist'})
 
