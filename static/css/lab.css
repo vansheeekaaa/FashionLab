@@ -99,7 +99,7 @@ body {
 .navbar-icons a:hover {
     color: #ff4081;
 }
-
+/* 
 .mobile-screen {
     background-color: #fafafa;
     border-radius: 10px;
@@ -110,7 +110,7 @@ body {
     margin-right: auto;
     height: 602px;
     overflow: hidden;
-}
+} */
 
 .theme-box {
     background-color: #fff;
@@ -320,11 +320,16 @@ body {
 
 
 .theme-box img {
-    width: 114%;
+    /* width: 114%;
     height: 356px;
     display: block;
     border-radius: 10px;
-    transform: scaleX(-1) translateX(3px);
+    transform: scaleX(-1) translateX(3px); */
+
+    height: 356px;
+    display: block;
+    border-radius: 10px;
+    transform: scaleX(1) translateY(1px);
 }
 
 .modal {
@@ -346,12 +351,12 @@ body {
     border: 1px solid #888;
     width: 100%;
     max-width: 400px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     text-align: center;
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
-    left: -10px;
+    left: 0px;
     right: 0;
     height: auto;
     max-height: 80vh;
