@@ -12,12 +12,9 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/vote.css' %}">
+    <link rel="stylesheet" href="{% static 'css/win.css' %}">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
     <title>LAB</title>
@@ -43,7 +40,8 @@
         </div>
         <div class="navbar-icons">
             <div class="dropdown">
-                <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'signup' %}{% endif %}" class="icon-item">
+                <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'signup' %}{% endif %}"
+                    class="icon-item">
                     <i class="fa-regular fa-user"></i>
                     <span>{% if user.is_authenticated %}Your Profile{% else %}Sign Up{% endif %}</span>
                 </a>
@@ -63,9 +61,6 @@
                 <span>Bag</span>
             </a>
         </div>
-        
-
-
     </nav>
 
     <div class="mobile-screen">
@@ -84,11 +79,10 @@
                 </div>
             </div>
             <div class="tabs">
-                <button class="active">Current Trends</button>
-                <button>Previous Trends</button>
+                <button class="active" id="currentTrendsBtn">Current Trends</button>
+                <button id="previousTrendsBtn">Previous Trends</button>
             </div>
             <div class="scrolling-gallery">
-
                 <div class="closet-leaderboard">
                     {% for design in designs %}
                     <div class="design-box" id="design-{{ design.id }}">
@@ -109,6 +103,48 @@
                         </div>
                     </div>
                     {% endfor %}
+                </div>
+                <div class="win-leaderboard-container" style="display:none;">
+                    <div class="design-box">
+                        <div class="design-item">
+                            <div class="design-image">
+                                <img src="{% static 'Images/fashion1.png' %}" alt="Design Image">
+                            </div>
+                            <div class="design-content">
+                                <h3>Modern Streetwear</h3>
+                                <p>Designed by Sia<p>
+                                <p>Combination of the light blue hoodie with floral and skull graphics, and black baggy pants - a youthful, casual, and slightly edgy style.</p>
+                                <button class="closet-btn">
+                                    <i class="fa-solid fa-hanger"></i> ADD TO CLOSET
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-box">
+                        <div class="design-item">
+                            <div class="design-image">
+                                <img src="{% static 'Images/fashion2.png' %}" alt="Design Image">
+                            </div>
+                            <div class="design-content">
+                                <h3>Digital Fashion</h3>
+                                <p>Designed by Reena<p>
+                                <p>Combination of a blue denim jacket, black pleated skirt, and black combat boots gives off a punk-inspired vibe with a contemporary twist.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-box">
+                        <div class="design-item">
+                            <div class="design-image">
+                                <img src="{% static 'Images/fashion3.png' %}" alt="Design Image">
+                            </div>
+                            <div class="design-content">
+                                <h3>Y2K Revival</h3>
+                                <p>Designed by Sheena<p>
+                                <p>The colorful jacket with blue, yellow, and red panels, paired with brown cargo pants and white sneakers, suggests a modern, casual style.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,12 +180,10 @@
                 var modal = document.getElementById("loginModal");
                 var span = document.getElementsByClassName("close")[0];
 
-                // Show the modal only if the user is not authenticated
-                {% if not user.is_authenticated %}
-                setTimeout(function () {
+                document.querySelector(".navbar-icons .dropdown a.icon-item").addEventListener("click", function (event) {
+                    event.preventDefault();
                     modal.style.display = "block";
-                }, 2000);
-                {% endif %}
+                });
 
                 span.onclick = function () {
                     modal.style.display = "none";
@@ -160,11 +194,29 @@
                         modal.style.display = "none";
                     }
                 };
+
+                // Handle tab switching
+                var currentTrendsBtn = document.getElementById("currentTrendsBtn");
+                var previousTrendsBtn = document.getElementById("previousTrendsBtn");
+                var closetLeaderboard = document.querySelector(".closet-leaderboard");
+                var winLeaderboardContainer = document.querySelector(".win-leaderboard-container");
+
+                currentTrendsBtn.addEventListener("click", function () {
+                    currentTrendsBtn.classList.add("active");
+                    previousTrendsBtn.classList.remove("active");
+                    closetLeaderboard.style.display = "block";
+                    winLeaderboardContainer.style.display = "none";
+                });
+
+                previousTrendsBtn.addEventListener("click", function () {
+                    previousTrendsBtn.classList.add("active");
+                    currentTrendsBtn.classList.remove("active");
+                    closetLeaderboard.style.display = "none";
+                    winLeaderboardContainer.style.display = "block";
+                });
             });
         </script>
-
-        <script src="https://kit.fontawesome.com/4fbf688a29.js" crossorigin="anonymous"></script>
-        <script src="{% static 'js/vote.js' %}"></script>
+    </div>
 </body>
 
 </html>
