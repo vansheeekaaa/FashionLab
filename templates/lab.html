@@ -102,6 +102,14 @@
                             <div class="closet-message" style="display:none;">Added to Closet!</div>
                         </div>
                     </div>
+                    <!-- Display the result image if available -->
+                    {% if design.result_image_url %}
+                    <div class="result-image-container">
+                        <h3>Best Match:</h3>
+                        <img src="{{ design.result_image_url }}" alt="Best Matching Image" class="result-image">
+                    </div>
+                    {% endif %}
+                    </div>
                     {% endfor %}
                 </div>
                 <div class="win-leaderboard-container" style="display:none;">

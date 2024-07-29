@@ -8,10 +8,11 @@ class DesignSubmission(models.Model):
     submitted_at = models.DateTimeField(auto_now_add=True)
     votes = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='designs')
+    result_image_url = models.URLField(null=True, blank=True)  # Add this field
 
     def __str__(self):
         return f"Design Submission {self.id}: {self.name}"
-
+    
 class Upvote(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     design = models.ForeignKey(DesignSubmission, on_delete=models.CASCADE)
