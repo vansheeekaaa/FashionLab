@@ -156,9 +156,12 @@ body {
 
 .tabs {
     display: flex;
-    margin-top: 9px;
-    margin-left: -11px;
+    margin-top: 0px;
+    margin-left: -22px;
     gap: 20px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    height: 41px;
+    width: 402px;
 }
 
 .tabs button {
@@ -169,6 +172,7 @@ body {
     padding: 10px;
     border-bottom: 2px solid transparent;
     color: rgba(0, 0, 0, 0.8);
+    margin-left: 14px;
 }
 
 
@@ -220,7 +224,7 @@ body {
 
 .theme-box img {
     width: 100%;
-    border: none; 
+    border: none;
     height: 416px;
     display: block;
 }
@@ -415,6 +419,7 @@ p a {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: -19px;
     /* Spacing between images */
     padding: 10px;
     /* Remove specific height; let it be determined by content */
@@ -503,10 +508,56 @@ p a {
     background-color: #ddd;
 }
 
+.best-match-container {
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    gap: 20px;
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar for Webkit browsers */
+.best-match-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+/* Hide scrollbar for Firefox */
+.best-match-container {
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for Edge and IE */
+.best-match-container {
+    -ms-overflow-style: none; /* Hide scrollbar for Edge and IE */
+}
+
+
+.images-column,
+.text-column {
+    flex: 0 0 auto;
+    /* Prevent items from shrinking or growing */
+}
+
+.images-column {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    /* Spacing between images */
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 133px;
+    text-align: left;
+    margin-left: 26px;
+}
 
 .result-image-container {
-    margin-top: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .result-image-container h3 {
@@ -515,8 +566,29 @@ p a {
 }
 
 .result-image {
-    max-width: 50%;
+    max-width: 135px;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+.buy-now-btn {
+    display: block;
+    background-color: #ff3e6c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    /* Make button full width */
+}
+
+.buy-now-btn:hover {
+    background-color: #dc1b5d;
 }
