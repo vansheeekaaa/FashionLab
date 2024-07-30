@@ -39,20 +39,19 @@
             <input type="text" placeholder="Search for products, brands and more">
         </div>
         <div class="navbar-icons">
-            {% if user.is_authenticated %}
             <div class="dropdown">
-                <a href="#" class="icon-item">
+                <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'signup' %}{% endif %}"
+                    class="icon-item">
                     <i class="fa-regular fa-user"></i>
-                    <span>Profile</span>
+                    <span>{% if user.is_authenticated %}Your Profile{% else %}Sign Up{% endif %}</span>
                 </a>
+                {% if user.is_authenticated %}
                 <div class="dropdown-content">
-                    <a href="{% url 'my_closet' %}">My Closet</a>
-                    <a href="{% url 'logout' %}">Logout</a>
+                    <a href="{% url 'my_closet' %}" class="text1">My Closet</a>
+                    <a href="{% url 'logout' %}" class="text2">Logout</a>
                 </div>
+                {% endif %}
             </div>
-            {% else %}
-            <a href="{% url 'signup' %}" class="icon-item">Sign Up</a>
-            {% endif %}
             <a href="#" class="icon-item">
                 <i class="fa-regular fa-heart"></i>
                 <span>Wishlist</span>
@@ -193,44 +192,35 @@
             document.addEventListener("DOMContentLoaded", function() {
                 var modal = document.getElementById("loginModal");
                 var span = document.getElementsByClassName("close")[0];
-    
+                var profileButton = document.querySelector(".navbar-icons .dropdown a.icon-item");
+        
                 // Show the modal only if the user is not authenticated
                 {% if not user.is_authenticated %}
-                    setTimeout(function () {
-                        modal.style.display = "block";
-                    }, 2000);
-                {% endif %}
-    
-                span.onclick = function () {
-                    modal.style.display = "none";
-                };
-    
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                };
-            });
-
-            document.addEventListener("DOMContentLoaded", function () {
-                var modal = document.getElementById("loginModal");
-                var span = document.getElementsByClassName("close")[0];
-
-                document.querySelector(".navbar-icons .dropdown a.icon-item").addEventListener("click", function (event) {
-                    event.preventDefault();
+                setTimeout(function() {
                     modal.style.display = "block";
+                }, 2000);
+        
+                profileButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    window.location.href = "{% url 'signup' %}";
                 });
-
-                span.onclick = function () {
+                {% else %}
+                profileButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    var dropdownContent = document.querySelector(".dropdown-content");
+                    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+                });
+                {% endif %}
+        
+                span.onclick = function() {
                     modal.style.display = "none";
                 };
-
-                window.onclick = function (event) {
+        
+                window.onclick = function(event) {
                     if (event.target == modal) {
                         modal.style.display = "none";
                     }
                 };
-
                 // Handle tab switching
                 var currentTrendsBtn = document.getElementById("currentTrendsBtn");
                 var previousTrendsBtn = document.getElementById("previousTrendsBtn");
