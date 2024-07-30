@@ -6,9 +6,6 @@ class DesignForm(forms.ModelForm):
     class Meta:
         model = DesignSubmission
         fields = ['name', 'email', 'design_link']
-        widgets = {
-            'password': forms.PasswordInput(),
-        }
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
