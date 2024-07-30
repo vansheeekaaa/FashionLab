@@ -5,7 +5,8 @@ from .forms import DesignForm
 from .models import DesignSubmission, Upvote, ClosetItem
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.models import User
-from .utils import process_glb_and_compare  
+from .utils import process_glb_and_compare
+from .pants import process_glb_and_compare_pants
 
 def submit_design(request):
     if request.method == 'POST':
@@ -29,6 +30,15 @@ def submit_design(request):
         # Update design submission with the result image URL and link
         design_submission.top_image_url = best_match_img_url
         design_submission.top_buy_url = best_match_link
+
+         # Process GLB file and find the best matching image and link
+        dataset_csv_path = 'data/Pants.csv'  # Update this path as needed
+        best_match_img_url, best_match_link = process_glb_and_compare_pants(design_link, dataset_csv_path)
+
+        # Update design submission with the result image URL and link
+        design_submission.pants_image_url = best_match_img_url
+        design_submission.pants_buy_url = best_match_link
+
         design_submission.save()
 
         return redirect('success')    
