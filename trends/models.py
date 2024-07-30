@@ -10,6 +10,8 @@ class DesignSubmission(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='designs')
     top_image_url = models.URLField(null=True, blank=True)
     top_buy_url = models.URLField(null=True, blank=True)
+    pants_image_url = models.URLField(null=True, blank=True)
+    pants_buy_url = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return f"Design Submission {self.id}: {self.name}"
