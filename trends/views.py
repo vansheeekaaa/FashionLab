@@ -31,21 +31,22 @@ def submit_design(request):
         design_submission.top_image_url = best_match_img_url
         design_submission.top_buy_url = best_match_link
 
-         # Process GLB file and find the best matching image and link
-        dataset_csv_path = 'data/Pants.csv'  # Update this path as needed
-        best_match_img_url, best_match_link = process_glb_and_compare_pants(design_link, dataset_csv_path)
+        # Process GLB file and find the best matching image and link for pants
+        dataset_csv_path_pants = 'data/Pants.csv'  # Update this path as needed
+        best_match_img_url_pants, best_match_link_pants = process_glb_and_compare_pants(design_link, dataset_csv_path_pants)
 
-        # Update design submission with the result image URL and link
-        design_submission.pants_image_url = best_match_img_url
-        design_submission.pants_buy_url = best_match_link
+        # Update design submission with the result image URL and link for pants
+        design_submission.pants_image_url = best_match_img_url_pants
+        design_submission.pants_buy_url = best_match_link_pants
 
         design_submission.save()
 
         return redirect('success')    
 
+    # Prepare context for GET request
     context = {
-        'user_name': request.user.get_full_name() if request.user.get_full_name() else request.user.username,
-        'user_email': request.user.email
+        'username': request.user.get_full_name() if request.user.get_full_name() else request.user.username,
+        'email': request.user.email
     }
     return render(request, 'submit_design.html', context)
 
