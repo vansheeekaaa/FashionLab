@@ -1,7 +1,7 @@
-.head-space a {
+/* .head-space a {
     text-decoration: none;
     color: inherit;
-}
+} */
 
 .win-leaderboard-container .design-box {
     margin-bottom: 20px;
@@ -91,10 +91,10 @@
     overflow: hidden;
 }
 
-.screen-content {
+/* .screen-content {
     overflow-y: auto;
     max-height: 600px;
-}
+} */
 
 .mobile-screen {
     /* overflow-y: auto; */
