@@ -18,19 +18,20 @@ def submit_design(request):
             name=name,
             email=email,
             design_link=design_link,
-            user=request.user 
+            user=request.user
         )
         design_submission.save()
 
-        # Process GLB file and find the best matching image
+        # Process GLB file and find the best matching image and link
         dataset_csv_path = 'data/myntra.csv'  # Update this path as needed
-        best_match_url = process_glb_and_compare(design_link, dataset_csv_path)
+        best_match_img_url, best_match_link = process_glb_and_compare(design_link, dataset_csv_path)
 
-        # Update design submission with the result image URL
-        design_submission.result_image_url = best_match_url
+        # Update design submission with the result image URL and link
+        design_submission.top_image_url = best_match_img_url
+        design_submission.top_buy_url = best_match_link
         design_submission.save()
 
-        return redirect('success')  
+        return redirect('success')    
 
     context = {
         'user_name': request.user.get_full_name() if request.user.get_full_name() else request.user.username,

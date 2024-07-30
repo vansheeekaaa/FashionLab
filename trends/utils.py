@@ -107,12 +107,15 @@ def process_glb_and_compare(glb_url, dataset_csv):
     df = pd.read_csv(dataset_csv)
 
     best_score = float('-inf')
-    best_match = None
+    best_match_img = None
+    best_match_link = None
 
     # Compare each image in the dataset with the extracted texture image
     for index, row in df.iterrows():
         try:
-            image_url = row['img']
+            image_url = row['img'].strip()  # Remove any extra spaces
+            link = row['link '].strip()     # Remove any extra spaces
+            
             response = requests.get(image_url)
             image = Image.open(BytesIO(response.content)).convert('RGB')
             image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
@@ -125,8 +128,10 @@ def process_glb_and_compare(glb_url, dataset_csv):
 
                 if similarity_score > best_score:
                     best_score = similarity_score
-                    best_match = image_url
+                    best_match_img = image_url
+                    best_match_link = link
+                
         except Exception as e:
             print(f"Error processing row {index}: {e}")
 
-    return best_match
+    return best_match_img, best_match_link

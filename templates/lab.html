@@ -103,10 +103,13 @@
                         </div>
                     </div>
                     <!-- Display the result image if available -->
-                    {% if design.result_image_url %}
+                    {% if design.top_image_url %}
                     <div class="result-image-container">
                         <h3>Best Match:</h3>
-                        <img src="{{ design.result_image_url }}" alt="Best Matching Image" class="result-image">
+                        <img src="{{ design.top_image_url }}" alt="Best Matching Image" class="result-image">
+                        {% if design.top_buy_url %}
+                        <p><a href="{{ design.top_buy_url }}" target="_blank">Buy this product</a></p>
+                        {% endif %}
                     </div>
                     {% endif %}
                     </div>
