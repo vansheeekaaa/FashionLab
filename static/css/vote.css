@@ -239,3 +239,11 @@
 .navbar-icons .dropdown:hover .icon-item {
     background-color: #ddd;
 }
+.recommended-text{
+    font-size: 14px;
+    color: #333;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: -6px;
+    margin-bottom: 13px;
+}
