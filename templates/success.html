@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/lab.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/success.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vote.css' %}">
+
     <title>Success Page</title>
 </head>
 <body>
@@ -64,7 +66,7 @@
             <div class="success-message">
                 <h2>Thank you for submitting your design!</h2>
                 <div class="button-group">
-                    <a href="{% url 'vote_view' %}" class="btn">Vote Now</a>
+                    <a href="{% url 'lab' %}" class="btn">Vote Now</a>
                     <a href="{% url 'my_closet' %}" class="btn">My Closet</a>
                 </div>
             </div>
