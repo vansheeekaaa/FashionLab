@@ -510,27 +510,40 @@ p a {
 
 .best-match-container {
     display: flex;
-    overflow-x: scroll; /* Enable horizontal scrolling */
+    overflow-x: scroll;
+    /* Enable horizontal scrolling */
     gap: 20px;
     padding: 10px 0;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
 }
 
 /* Hide scrollbar for Webkit browsers */
 .best-match-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Webkit browsers */
+    display: none;
+    /* Hide scrollbar for Webkit browsers */
 }
 
 /* Hide scrollbar for Firefox */
 .best-match-container {
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
 }
 
 /* Hide scrollbar for Edge and IE */
 .best-match-container {
-    -ms-overflow-style: none; /* Hide scrollbar for Edge and IE */
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Edge and IE */
 }
 
+.recommended-text {
+    font-size: 14px;
+    color: #282c3f;
+    margin-top: -4px;
+    margin-left: -154px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
 
 .images-column,
 .text-column {
@@ -557,7 +570,7 @@ p a {
 .result-image-container {
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .result-image-container h3 {

@@ -104,6 +104,7 @@
                     </div>
 
                     <!-- Display the result image if available -->
+                    <h3 class="recommended-text">Recommended Products</h3>
                     <div class="best-match-container">
                         <div class="images-column">
                             {% if design.top_image_url %}
@@ -111,10 +112,6 @@
                                 <img src="{{ design.top_image_url }}" alt="Best Matching Image" class="result-image">
                                 {% if design.top_buy_url %}
                                 <div class="text-column">
-                                    <!-- Add your text and links here -->
-                                     <h4>heading</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor nisi at
-                                        justo consectetur, sed vehicula libero commodo.</p>
                                     <p><a href="{{ design.top_buy_url }}" target="_blank">Buy this product</a></p>
                                     {% endif %}
                                 </div>
@@ -126,15 +123,10 @@
                                 <img src="{{ design.pants_image_url }}" alt="Best Matching Image" class="result-image">
                                 {% if design.pants_buy_url %}
                                 <div class="text-column">
-                                    <!-- Add your text and links here -->
-                                    <h4>heading</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor nisi at
-                                        justo consectetur, sed vehicula libero commodo.</p>
                                     <p><a href="{{ design.pants_buy_url }}" target="_blank">Buy this product</a></p>
                                     {% endif %}
                                 </div>
                             </div>
-
                             {% endif %}
                         </div>
                     </div>
