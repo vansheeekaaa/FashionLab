@@ -231,30 +231,6 @@ body {
     color: #fff;
 }
 
-.theme-text {
-    margin: 0;
-    font-weight: bold;
-    line-height: 1px;
-    color: #fff;
-    font-family: 'Permanent Marker', cursive;
-    z-index: 2;
-}
-
-.theme-text #text1 {
-    color: #ebebeb;
-    font-size: 31px;
-    text-shadow: 2px 6px 2px rgb(97 82 82);
-    z-index: 2;
-}
-
-.theme-text #theme {
-    font-size: 55px;
-    font-weight: bolder;
-    color: #ffffff;
-    text-shadow: 2px 6px 2px rgb(0 0 0);
-}
-
-
 .theme-box img {
     width: 100%;
     display: block;
@@ -505,69 +481,55 @@ p a {
     background-color: #dc1b5d;
 }
 
-/* Ensure the dropdown container is positioned correctly */
 .navbar-icons .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Style for the dropdown menu */
 .navbar-icons .dropdown .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
+    height: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    top: 56px;
-    left: -15px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Space items evenly */
-    height: 100px; /* Adjust height as needed */
-    padding: 5px 0; /* Add some padding to top and bottom */
-    height: 80px;
+    border: 1px solid #ddd;
 }
 
-/* Style for dropdown items */
-.dropdown-content a {
+/* .navbar-icons .dropdown .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    border-bottom: 1px solid #ddd; /* Add a separator between items */
-    text-align: left; /* Align text to the left */
-    box-sizing: border-box; /* Include padding in the element’s total width and height */
+} */
+ 
+.navbar-icons .dropdown .dropdown-content a {
+    color: #282c3f;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    /* margin-left: 3px; */
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
-/* Remove the border from the last item */
-.dropdown-content a:last-child {
-    border-bottom: none;
+.navbar-icons .dropdown .dropdown-content a:hover {
+    /* background-color: #f1f1f1; */
+    /* color: #404458; */
+    font-weight: bolder;
 }
 
-/* Highlight the background color of the dropdown items on hover */
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Display the dropdown menu on hover */
 .navbar-icons .dropdown:hover .dropdown-content {
-    display: flex; /* Use flexbox for dropdown content */
+    display: block;
 }
 
-/* Optional: Add background color to the icon on hover if needed */
 .navbar-icons .dropdown:hover .icon-item {
-    background-color: transparent; /* Ensure no background color on hover */
+    background-color: #ddd;
 }
 
-.dropdown-content .text1{
-    margin-left: 1px;
-}
-
-.dropdown-content .text2{
-    margin-left: 1px;
-}
 
 .result-image-container {
     margin-top: 20px;
@@ -580,7 +542,7 @@ p a {
 }
 
 .result-image {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 5px;

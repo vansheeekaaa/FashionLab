@@ -118,7 +118,7 @@ body {
     justify-content: center;
 }
 
-.design-box {
+.closet-leaderboard .design-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -220,12 +220,12 @@ body {
     z-index: 1;
 }
 
-.navbar-icons .dropdown .dropdown-content a {
+/* .navbar-icons .dropdown .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
+} */
 
 .navbar-icons .dropdown .dropdown-content a:hover {
     background-color: #f1f1f1;
