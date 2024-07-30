@@ -61,7 +61,7 @@ body {
     position: absolute;
     top: -7px;
     right: -23px;
-    animation: slideIn 2s infinite; 
+    animation: slideIn 2s infinite;
 }
 
 @keyframes slideIn {
@@ -69,10 +69,12 @@ body {
         transform: translateX(-100%);
         opacity: 0;
     }
+
     50% {
         transform: translateX(0);
         opacity: 1;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -256,16 +258,18 @@ body {
     align-items: center;
     text-align: center;
     color: black;
-    font-size: 17px;
-    font-family: "Anton SC", sans-serif;
-    font-weight: 400;
+    font-size: 19px;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:900;
+    font-style: normal;
     font-style: normal;
 }
 
 .dropdown-contenta .textintext {
-    color: grey;
-    font-size: 14px;
-    font-weight: 100;
+    color: #282c3f;
+    font-size: 17px;
+    font-weight: 400;
     margin-top: -15px;
     font-family: "Dosis", sans-serif;
     font-optical-sizing: auto;

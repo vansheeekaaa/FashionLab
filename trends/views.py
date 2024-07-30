@@ -86,7 +86,7 @@ def signup(request):
         user.first_name = name  # Save the name in the user's first_name field
         user.save()
         auth_login(request, user)
-        return redirect('create')  # Redirect to create page after signup
+        return redirect('lab')  # Redirect to create page after signup
 
     return render(request, 'signup.html')
 
